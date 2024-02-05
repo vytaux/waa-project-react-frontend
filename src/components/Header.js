@@ -1,29 +1,37 @@
-import React from "react";
-import {Link} from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import hasRole from "../util/hasRole";
 
 const Header = ({ currentUser, setCurrentUser }) => {
+
+    const navigate = useNavigate();
 
     const logoutHandler = () => {
         setCurrentUser(null);
     }
 
-    return (
-        <header className='header'>
-            <nav className='w-full flex'>
-                <Link to={'/'} className='title-link'><h1>OneHouse</h1></Link>
+    if (hasRole(currentUser, 'ROLE_ADMIN'))
+        navigate('/admin')
 
-                {hasRole(currentUser, 'ROLE_ADMIN') && <h2>This is ADMIN</h2>}
-                {hasRole(currentUser, 'ROLE_OWNER') && <h2>This is OWNER</h2>}
-                {hasRole(currentUser, 'ROLE_CUSTOMER') && <h2>This is CUSTOMER</h2>}
+    if (hasRole(currentUser, 'ROLE_OWNER'))
+        navigate('/owner')
 
-                {!currentUser
-                    ? <Link to='/login' className='login-logout-link'>Login</Link>
-                    : <Link className='login-logout-link' onClick={logoutHandler}>Logout</Link>
-                }
-            </nav>
-        </header>
-    );
+    if (hasRole(currentUser, 'ROLE_CUSTOMER'))
+        navigate('/customer')
+
+
+    if (!currentUser)
+        return (
+            <header className='header'>
+                <nav className='w-full flex'>
+                    <Link to={'/'} className='title-link'><h1>OneHouse</h1></Link>
+                    {!currentUser ? <Link to='/register' className='login-logout-link'>Register</Link> : null}
+                    {!currentUser ? <Link to='/login' className='login-logout-link'>Login</Link> : null}
+                    {currentUser ? <Link className='login-logout-link' onClick={logoutHandler}>Logout</Link> : null}
+                </nav>
+            </header>
+        )
+
 }
 
 

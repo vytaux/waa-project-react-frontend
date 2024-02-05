@@ -21,7 +21,10 @@ const FetchService = {
         return this._call('GET', '/properties');
     },
     login: function (email, password) {
-        return this._call('POST', '/auth/login', {email, password});
+        return this._call('POST', '/auth/login', { email, password });
+    },
+    register: function (email, password, role) {
+        return this._call('POST', '/auth/register', { email, password, role });
     },
 }
 
