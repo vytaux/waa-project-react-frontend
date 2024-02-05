@@ -13,7 +13,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Header currentUser={currentUser} setCurrentUser={setCurrentUser} />
-            <PageRoutes setCurrentUser={setCurrentUser} />
+            <PageRoutes currentUser={currentUser} setCurrentUser={setCurrentUser} />
         </BrowserRouter>
     );
 }

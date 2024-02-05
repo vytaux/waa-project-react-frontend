@@ -11,7 +11,7 @@ import CustomerDashboard from "../containers/CustomerDashboard";
 import Register from "../components/Register";
 
 
-export default function PageRoutes({ setCurrentUser }) {
+export default function PageRoutes({ currentUser, setCurrentUser }) {
     return (
         <Routes>
             <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />
@@ -19,22 +19,17 @@ export default function PageRoutes({ setCurrentUser }) {
             {/*Show properties homepage*/}
             <Route path='/' element={<Homepage />} />
 
-            {/*Show admin dashboard*/}
-            <Route path='/admin' element={<AdminDashboard />} />
-
-            {/*Show admin dashboard*/}
-            <Route path='/owner' element={<OwnerDashboard />} />
-
-            {/*Show admin dashboard*/}
-            <Route path='/customer' element={<CustomerDashboard />} />
-
-
             {/*Show Register/Signup page*/}
             <Route path='/register' element={<Register />} />
 
             {/*specific admin/customer/owner routes???*/}
-            <Route element={<RequireAuth />}>
-
+            <Route element={<RequireAuth currentUser={currentUser} />}>
+                {/*Show admin dashboard*/}
+                <Route path='/admin' element={<AdminDashboard />} />
+                {/*Show admin dashboard*/}
+                <Route path='/owner' element={<OwnerDashboard />} />
+                {/*Show admin dashboard*/}
+                <Route path='/customer' element={<CustomerDashboard />} />
             </Route>
 
             {/*beautiful 404*/}

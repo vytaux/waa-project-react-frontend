@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import {useNavigate} from "react-router-dom";
 import FetchService from "../service/FetchService";
 import extractJwtPayload from "../util/extractJwtPayload";
+import hasRole from "../util/hasRole";
 
 const Login = ({ setCurrentUser }) => {
 
@@ -14,7 +15,6 @@ const Login = ({ setCurrentUser }) => {
             .then(response => {
                 const payload = extractJwtPayload(response.data.accessToken);
 
-                console.log(payload)
                 const currentUser = {
                     email: payload.sub,
                     roles: payload.roles
