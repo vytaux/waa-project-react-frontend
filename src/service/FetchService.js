@@ -1,7 +1,7 @@
 import API from "../config/Api";
 
 const FetchService = {
-    _call: function (method, url, data = null, headers = {}) {
+    _call(method, url, data = null, headers = {}) {
         return new Promise((resolve, reject) => {
             try {
                 const response = API({
@@ -17,15 +17,25 @@ const FetchService = {
             }
         });
     },
-    getAllProperties: function () {
+    getAllProperties() {
         return this._call('GET', '/properties');
     },
-    login: function (email, password) {
+    login(email, password) {
         return this._call('POST', '/auth/login', { email, password });
     },
-    register: function (email, password, role) {
+    register(email, password, role) {
         return this._call('POST', '/auth/register', { email, password, role });
     },
+    getPendingOwners(token) {
+        return this._call('GET', '/admin/owners/pending', null, {
+            Authorization: `Bearer ${token}`
+        });
+    },
+    approveOwner(token, userId) {
+        return this._call('PUT', `/admin/owners/${userId}/approve`, null, {
+            Authorization: `Bearer ${token}`
+        });
+    }
 }
 
 export default FetchService;
