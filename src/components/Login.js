@@ -14,12 +14,13 @@ const Login = ({ setCurrentUser }) => {
             .then(response => {
                 const payload = extractJwtPayload(response.data.accessToken);
 
-                console.log(payload)
                 const currentUser = {
                     email: payload.sub,
+                    accessToken: response.data.accessToken,
                     roles: payload.roles
                 };
                 setCurrentUser(currentUser);
+                console.log(payload)
 
                 navigate('/')
             });
