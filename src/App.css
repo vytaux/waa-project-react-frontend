@@ -33,3 +33,10 @@
         border: 1px solid #ccc;
     }
 }
+
+.propertyDetails {
+    img {
+        border: 1px solid #ccc;
+        box-shadow: black 0px 0px 4px;
+    }
+}

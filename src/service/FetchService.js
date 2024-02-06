@@ -35,6 +35,9 @@ const FetchService = {
         return this._call('PUT', `/admin/owners/${userId}/approve`, null, {
             Authorization: `Bearer ${token}`
         });
+    },
+    getPropertyBySlug(slug) {
+        return this._call('GET', `/properties/${slug}`);
     }
 }
 
