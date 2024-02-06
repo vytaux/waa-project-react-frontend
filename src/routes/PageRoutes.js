@@ -18,7 +18,7 @@ function PageRoutes({ currentUser, setCurrentUser }) {
 
             {/*Show properties homepage*/}
             <Route path='/' element={<Homepage />} />
-            <Route path='/properties/:slug' element={<PropertyDetails />} />
+            <Route path='/properties/:slug' element={<PropertyDetails currentUser={currentUser} />} />
 
             <Route element={<RequireAuth currentUser={currentUser} />}>
                 {/*Show admin dashboard*/}

@@ -38,6 +38,11 @@ const FetchService = {
     },
     getPropertyBySlug(slug) {
         return this._call('GET', `/properties/${slug}`);
+    },
+    createOffer(token, propertyId, message, price) {
+        return this._call('POST', '/customers/offers', { propertyId, message, price }, {
+            Authorization: `Bearer ${token}`
+        });
     }
 }
 
