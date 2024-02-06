@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import {Navigate, Route, Routes} from 'react-router-dom'
 import Missing from '../components/Missing'
 import Homepage from '../containers/Homepage'
 import Login from '../components/Login'
@@ -10,6 +10,7 @@ import OwnerDashboard from "../containers/OwnerDashboard";
 import CustomerDashboard from "../containers/CustomerDashboard";
 import Property from "../components/Property";
 import PropertyDetails from "../components/PropertyDetails";
+import EditProperty from "../components/EditProperty";
 
 function PageRoutes({ currentUser, setCurrentUser }) {
     return (
@@ -21,12 +22,16 @@ function PageRoutes({ currentUser, setCurrentUser }) {
             <Route path='/properties/:slug' element={<PropertyDetails currentUser={currentUser} />} />
 
             <Route element={<RequireAuth currentUser={currentUser} />}>
-                {/*Show admin dashboard*/}
+                {/*ROLE_ADMIN*/}
                 <Route path='/admin' element={<AdminDashboard currentUser={currentUser} />} />
-                {/*Show admin dashboard*/}
+                {/*ROLE_OWNER*/}
                 <Route path='/owner' element={<OwnerDashboard currentUser={currentUser} />} />
-                {/*Show admin dashboard*/}
+                {/*ROLE_CUSTOMER*/}
                 <Route path='/customer' element={<CustomerDashboard currentUser={currentUser} />} />
+
+                {/*ROLE_ADMIN || ROLE_OWNER*/}
+                <Route path='/owner/add-property' element={<Navigate to="/owner/edit-property" replace />} />
+                <Route path='/owner/edit-property/:id?' element={<EditProperty currentUser={currentUser} />} />
             </Route>
 
             {/*Show Register/Signup page*/}

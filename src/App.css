@@ -21,6 +21,11 @@
             color: white;
             margin-left: auto;
         }
+
+        .add-property {
+            margin-left: auto;
+            color: white;
+        }
     }
 }
 

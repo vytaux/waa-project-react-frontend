@@ -19,6 +19,8 @@ const Header = () => {
                 {hasRole(currentUser, 'ADMIN') ? <Link to='/admin'>Admin</Link> : null}
                 {hasRole(currentUser, 'OWNER') ? <Link to='/owner'>Owner</Link> : null}
                 {hasRole(currentUser, 'CUSTOMER') ? <Link to='/customer'>Customer</Link> : null}
+                {hasRole(currentUser, 'OWNER') || hasRole(currentUser, 'ADMIN')
+                    ? <Link className='add-property' to='/owner/add-property'>Add Property</Link> : null}
                 {!currentUser ? <Link to='/register' className='login-logout-link'>Register</Link> : null}
                 {!currentUser ? <Link to='/login' className='login-logout-link'>Login</Link> : null}
                 {currentUser ? <Link className='login-logout-link' onClick={logoutHandler}>Logout</Link> : null}

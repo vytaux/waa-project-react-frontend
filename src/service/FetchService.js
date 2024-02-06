@@ -78,6 +78,16 @@ const FetchService = {
         return this._call('GET', '/customers/offers', null, {
             Authorization: `Bearer ${accessToken}`
         });
+    },
+    createProperty(accessToken, property) {
+        return this._call('POST', '/owners/properties', property, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    updateProperty(accessToken, id, property) {
+        return this._call('PUT', `/owners/properties/${id}`, property, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 

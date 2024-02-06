@@ -1,11 +1,13 @@
 import React, {useEffect} from 'react'
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
+import {Link, useNavigate} from "react-router-dom";
 
 function OwnerDashboard({ currentUser }) {
 
     const [ownersOffersState, setOwnersOffersState] = React.useState([]);
     const [ownersPropertiesState, setOwnersPropertiesState] = React.useState([]);
+    const navigate = useNavigate();
 
     const fetchOwnersOffers = () => {
         FetchService.getOwnersOffers(currentUser.accessToken)
@@ -102,6 +104,7 @@ function OwnerDashboard({ currentUser }) {
                             <td>
                                 <button onClick={() => turnPropertyContingent(property.id)}>Turn contingent</button>
                                 <button onClick={() => cancelPropertyContingency(property.id)}>Cancel contingency</button>
+                                <Link to={`/owner/edit-property/${property.id}`} state={property}>Edit property</Link>
                             </td>
                         </tr>
                     ))}
