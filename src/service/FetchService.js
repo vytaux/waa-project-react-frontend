@@ -88,6 +88,11 @@ const FetchService = {
         return this._call('PUT', `/owners/properties/${id}`, property, {
             Authorization: `Bearer ${accessToken}`
         });
+    },
+    deleteProperty(accessToken, propertyId) {
+        return this._call('DELETE', `/owners/properties/${propertyId}`, null, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 
