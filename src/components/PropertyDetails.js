@@ -40,31 +40,33 @@ const PropertyDetails = ({ currentUser }) => {
                 ? <p>Loading...</p>
                 :
                 <div className='flex propertyDetailsWrapper'>
-                    <div className='propertyDetails'>
+                    <div className='propertyDetails w-full'>
                         <h2>{propertyDetails.name}</h2>
                         <img height='250' src="/1.webp" alt=""/>
                         <img height='250' src="/2.webp" alt=""/>
                         <img height='250' src="/3.webp" alt=""/>
                         <p>{propertyDetails.description}</p>
                     </div>
-                    <div className='offerForm'>
-                        <h3>Make an Offer</h3>
-                        <div>
-                            <div>Your Message</div>
-                            <textarea ref={offerMessage} />
+                    {!hasRole(currentUser, 'OWNER') &&
+                        <div className='offerForm'>
+                            <h3>Make an Offer</h3>
+                            <div>
+                                <div>Your Message</div>
+                                <textarea ref={offerMessage}/>
+                            </div>
+                            <div>
+                                <div>Your Price $</div>
+                                <input type="number" ref={offerPrice}/>
+                            </div>
+                            <button onClick={submitOffer} disabled={!hasRole(currentUser, 'CUSTOMER')}>
+                                Make an Offer
+                            </button>
+                            <div ref={notification}></div>
+                            {!hasRole(currentUser, 'CUSTOMER') &&
+                                <p><Link to='/login'>Login</Link> to make an offer</p>
+                            }
                         </div>
-                        <div>
-                            <div>Your Price $</div>
-                            <input type="number" ref={offerPrice}/>
-                        </div>
-                        <button onClick={submitOffer} disabled={!hasRole(currentUser, 'CUSTOMER')}>
-                            Make an Offer
-                        </button>
-                        <div ref={notification}></div>
-                        {!hasRole(currentUser, 'CUSTOMER') &&
-                            <p><Link to='/login'>Login</Link> to make an offer</p>
-                        }
-                    </div>
+                    }
                 </div>
             }
         </React.Fragment>
