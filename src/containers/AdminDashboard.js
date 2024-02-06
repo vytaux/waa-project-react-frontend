@@ -28,6 +28,7 @@ function AdminDashboard({ currentUser }) {
                     <tr>
                         <th>ID</th>
                         <th>Email</th>
+                        <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@ function AdminDashboard({ currentUser }) {
                     <tr key={user.id}>
                         <td>{user.id}</td>
                         <td>{user.email}</td>
+                        <td>{user.status}</td>
                     <td><button onClick={() => approveOwner(user.id)}>Approve</button></td>
                     </tr>
                 ))}
