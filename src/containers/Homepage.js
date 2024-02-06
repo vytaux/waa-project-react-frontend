@@ -27,7 +27,7 @@ const Homepage = () => {
         return (
             <div className='properties flex'>
                 {properties.map(property => (
-                    <Property key={property.id} property={property} />
+                    <Property key={property.id} property={property}  />
                 ))}
             </div>
         );
