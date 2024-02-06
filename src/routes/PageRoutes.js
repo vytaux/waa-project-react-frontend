@@ -24,9 +24,9 @@ function PageRoutes({ currentUser, setCurrentUser }) {
                 {/*Show admin dashboard*/}
                 <Route path='/admin' element={<AdminDashboard currentUser={currentUser} />} />
                 {/*Show admin dashboard*/}
-                <Route path='/owner' element={<OwnerDashboard />} />
+                <Route path='/owner' element={<OwnerDashboard currentUser={currentUser} />} />
                 {/*Show admin dashboard*/}
-                <Route path='/customer' element={<CustomerDashboard />} />
+                <Route path='/customer' element={<CustomerDashboard currentUser={currentUser} />} />
             </Route>
 
             {/*Show Register/Signup page*/}

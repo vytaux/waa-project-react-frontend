@@ -43,6 +43,41 @@ const FetchService = {
         return this._call('POST', '/customers/offers', { propertyId, message, price }, {
             Authorization: `Bearer ${token}`
         });
+    },
+    getOwnersOffers(token) {
+        return this._call('GET', '/owners/offers', null, {
+            Authorization: `Bearer ${token}`
+        });
+    },
+    acceptOffer(token, offerId) {
+        return this._call('PUT', `/owners/offers/${offerId}/accept`, null, {
+            Authorization: `Bearer ${token}`
+        });
+    },
+    rejectOffer(token, offerId) {
+        return this._call('PUT', `/owners/offers/${offerId}/reject`, null, {
+            Authorization: `Bearer ${token}`
+        });
+    },
+    getOwnersProperties(accessToken) {
+        return this._call('GET', '/owners/properties', null, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    turnPropertyContingent(accessToken, propertyId) {
+        return this._call('PUT', `/owners/properties/${propertyId}/turnContingent`, null, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    cancelPropertyContingency(accessToken, propertyId) {
+        return this._call('PUT', `/owners/properties/${propertyId}/cancelContingency`, null, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    getCustomersOffers(accessToken) {
+        return this._call('GET', '/customers/offers', null, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 
