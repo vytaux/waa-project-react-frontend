@@ -2,6 +2,7 @@ import React, {useRef} from "react";
 import {useNavigate} from "react-router-dom";
 import FetchService from "../service/FetchService";
 import extractJwtPayload from "../util/extractJwtPayload";
+import pageRoutes from "../routes/PageRoutes";
 
 const Login = ({ setCurrentUser }) => {
 
@@ -27,12 +28,20 @@ const Login = ({ setCurrentUser }) => {
     }
 
     return (
-        <div>
-            <h1>Login</h1>
-            <div>email <input type="text" ref={email}/></div>
-            <div>password <input type="password" ref={password}/></div>
-            <button onClick={handleLogin}>Login</button>
-        </div>
+        <main className='login-content'>
+            <div className="form login-form">
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" ref={email}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password"
+                           ref={password}/>
+                </div>
+                <button className="btn btn-primary" onClick={handleLogin}>Login</button>
+            </div>
+        </main>
     );
 }
 

@@ -169,44 +169,91 @@ body {
     margin-top: auto;
     background: #212121;
     color: white;
-    padding: 7px 12px;
+    padding: 20px 0;
+    text-align: center;
 
-    a {
-        color: white;
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .footer-info {
+            font-size: 16px;
+        }
+
+        .footer-developers {
+            font-size: 14px;
+            margin-top: 10px;
+
+            a {
+                color: white;
+                text-decoration: none;
+                margin: 0 5px;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 }
 
+.form {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 44px auto 26px;
 
+    .form-group {
+        margin-bottom: 20px; /* Adjust the margin between form groups */
 
+        label {
+            display: block;
+            margin-bottom: 5px; /* Adjust the margin below labels */
+            color: #333;
+        }
 
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
 
-.footer {
-    background-color: #212121;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-}
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            outline: none; /* Remove default focus outline */
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+            option {
+                background-color: #fff;
+                color: #333;
+            }
 
-.footer-info {
-    font-size: 16px;
-}
+            &::-ms-expand {
+                display: none;
+            }
+        }
+    }
 
-.footer-developers {
-    font-size: 14px;
-    margin-top: 10px;
-}
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff; /* Adjust the button color */
+        color: #fff;
+        cursor: pointer;
 
-.footer-developers a {
-    color: #fff;
-    text-decoration: none;
-    margin: 0 5px;
-}
-
-.footer-developers a:hover {
-    text-decoration: underline;
+        &:hover {
+            background-color: #5b5b5b; /* Adjust the hover color */
+        }
+    }
 }

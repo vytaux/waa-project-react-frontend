@@ -34,20 +34,27 @@ function Register({ setCurrentUser }) {
     }
 
     return (
-        <div>
-            <h1>Register</h1>
-            <div>email<input type="text" ref={email} /></div>
-            <div>password <input type="password" ref={password} /></div>
-
-            <label htmlFor="roleDropdown" >Select an option: </label>
-            <select id="roleDropdown" ref={role} >
-                <option value="">-- Select an option--</option>
-                <option value="ROLE_OWNER">Home Owner</option>
-                <option value="ROLE_CUSTOMER">Home Buyer</option>
-            </select>
-
-            <button onClick={register}>Register</button>
-        </div>
+        <main className='register-content'>
+            <div className="form register-form">
+                <div className="form-group">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" ref={email}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" ref={password}/>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="roleDropdown">Select an option: </label>
+                    <select id="roleDropdown" ref={role}>
+                        <option value="">-- Select an option--</option>
+                        <option value="ROLE_OWNER">Home Owner</option>
+                        <option value="ROLE_CUSTOMER">Home Buyer</option>
+                    </select>
+                </div>
+                <button type="submit" className="btn btn-primary">Register</button>
+            </div>
+        </main>
     );
 }
 
