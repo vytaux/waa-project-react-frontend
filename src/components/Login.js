@@ -29,7 +29,7 @@ const Login = ({ setCurrentUser }) => {
 
     return (
         <main className='login-content'>
-            <div className="form login-form">
+            <div className="form login-form mx-auto">
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" ref={email}/>

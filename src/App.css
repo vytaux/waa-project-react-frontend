@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 
+.mx-auto {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 html, body, #root {
     height: 100%;
 }
@@ -23,7 +28,6 @@ body {
 
 .form {
     max-width: 400px; /* Adjust the maximum width as needed */
-    margin: 0 auto;
 
     .form-group {
         margin-bottom: 20px; /* Adjust the margin between form groups */
@@ -82,6 +86,54 @@ body {
         &:hover {
             background-color: #5b5b5b; /* Adjust the hover color */
         }
+    }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th, td {
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333;
+    }
+
+    tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    button, a {
+        padding: 6px 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 5px;
+        font-size: 14px;
+        text-decoration: none;
+        color: #fff;
+    }
+
+    button {
+        background-color: #007bff;
+    }
+
+    button:hover {
+        background-color: #555;
+    }
+
+    a {
+        background-color: #28a745;
+    }
+
+    a:hover {
+        background-color: #555;
     }
 }
 
@@ -286,8 +338,7 @@ body {
     margin-top: 44px;
 }
 
-
-
-
-
-
+.edit-property-content, .edit-offer-content,
+.owner-dashboard-content, .admin-dashboard-content, .customer-dashboard-content {
+    padding: 16px;
+}

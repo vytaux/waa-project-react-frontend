@@ -1,13 +1,12 @@
 import React, {useEffect} from 'react'
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
-import {Link, useNavigate} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 function OwnerDashboard({ currentUser }) {
 
     const [ownersOffersState, setOwnersOffersState] = React.useState([]);
     const [ownersPropertiesState, setOwnersPropertiesState] = React.useState([]);
-    const navigate = useNavigate();
 
     const fetchOwnersOffers = () => {
         FetchService.getOwnersOffers(currentUser.accessToken)
@@ -57,12 +56,12 @@ function OwnerDashboard({ currentUser }) {
     }
 
     return (
-        <div>
+        <main className='owner-dashboard-content'>
             <h1>Offers</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Message</th>
                         <th>Status</th>
                         <th>Property name</th>
@@ -93,10 +92,10 @@ function OwnerDashboard({ currentUser }) {
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>name</th>
-                        <th>status</th>
-                        <th>actions</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -116,7 +115,7 @@ function OwnerDashboard({ currentUser }) {
                     ))}
                 </tbody>
             </table>
-        </div>
+        </main>
     )
 }
 

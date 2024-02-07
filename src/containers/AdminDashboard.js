@@ -21,7 +21,7 @@ function AdminDashboard({ currentUser }) {
     }
 
     return (
-        <main>
+        <main className='admin-dashboard-content'>
             <h1>Pending users</h1>
             <table>
                 <thead>

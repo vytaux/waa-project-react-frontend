@@ -22,11 +22,19 @@ const EditProperty = ({ currentUser }) => {
     }
 
     return (
-        <React.Fragment>
-            <div>Message <input type="text" ref={message} defaultValue={state.message}/></div>
-            <div>Price <input type="number" ref={price} defaultValue={state.price}/></div>
-            <button onClick={save}>Save</button>
-        </React.Fragment>
+        <main className='edit-offer-content'>
+            <div className="form">
+                <div className='form-group'>
+                    <label>Message</label>
+                    <input type="text" ref={message} defaultValue={state.message}/>
+                </div>
+                <div className='form-group'>
+                    <label>Price</label>
+                    <input type="number" ref={price} defaultValue={state.price}/>
+                </div>
+                <button onClick={save}>Save</button>
+            </div>
+        </main>
     );
 }
 

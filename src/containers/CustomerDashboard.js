@@ -19,12 +19,12 @@ function CustomerDashboard({ currentUser }) {
     }
 
     return (
-        <React.Fragment>
+        <main className='customer-dashboard-content'>
             <h1>My Offers</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>ID</th>
                         <th>Property</th>
                         <th>Message</th>
                         <th>Price</th>
@@ -50,7 +50,7 @@ function CustomerDashboard({ currentUser }) {
                     ))}
                 </tbody>
             </table>
-        </React.Fragment>
+        </main>
     )
 }
 

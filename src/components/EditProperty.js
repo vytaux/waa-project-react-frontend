@@ -39,13 +39,27 @@ const EditProperty = ({ currentUser }) => {
     }
 
     return (
-        <React.Fragment>
-            <div>Name <input type="text" ref={name} defaultValue={state?.name}/></div>
-            <div>Slug <input type="text" ref={slug} defaultValue={state?.slug}/></div>
-            <div>Price <input type="number" ref={price} defaultValue={state?.price}/></div>
-            <div>Description <textarea ref={description} defaultValue={state?.description}></textarea></div>
-            <button onClick={save}>Save</button>
-        </React.Fragment>
+        <main className='edit-property-content'>
+            <div className="form">
+                <div className='form-group'>
+                    <label>Name</label>
+                    <input type="text" ref={name} defaultValue={state?.name}/>
+                </div>
+                <div className='form-group'>
+                    <label>Slug</label>
+                    <input type="text" ref={slug} defaultValue={state?.slug}/>
+                </div>
+                <div className='form-group'>
+                    <label>Price</label>
+                    <input type="number" ref={price} defaultValue={state?.price}/>
+                </div>
+                <div className='form-group'>
+                    <label>Description</label>
+                    <textarea ref={description} defaultValue={state?.description}></textarea>
+                </div>
+                <button onClick={save}>Save</button>
+            </div>
+        </main>
     );
 }
 
