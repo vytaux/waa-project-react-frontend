@@ -17,20 +17,16 @@ const Homepage = () => {
             );
     }, []);
 
-    if (!properties.length)
-        return (
-            <div className='properties flex'>
-                <h1>Loading</h1>
-            </div>
-        );
-    else
-        return (
-            <div className='properties flex'>
+    return (
+        <div className='homepage'>
+            <h1>Trending Properties</h1>
+            <div className='properties'>
                 {properties.map(property => (
-                    <Property key={property.id} property={property}  />
+                    <Property key={property.id} property={property}/>
                 ))}
             </div>
-        );
+        </div>
+    );
 }
 
 export default Homepage;

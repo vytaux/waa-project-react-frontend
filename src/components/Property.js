@@ -8,12 +8,19 @@ const Property = ({ property }) => {
     const pictureUrl = randomPictureProvider();
 
     return (
-        <Link to={`/properties/${property.slug}`} key={property.id} className='property'>
-            <h3>{property.name}</h3>
-            <img height='150' width='200' src={pictureUrl} alt=""/>
-            <p>{property.description}</p>
-            <p>{formatMoney(property.price)}</p>
-        </Link>
+        <div className='property'>
+            <Link to={`/properties/${property.slug}`} key={property.id} className='picture-link'>
+                <div className='status-badge'>{property.status}</div>
+                <img className='picture' src={pictureUrl} alt=""/>
+            </Link>
+            <div className="info">
+            <Link to={`/properties/${property.slug}`} key={property.id} className='name'>
+                    {property.name}
+                </Link>
+                <div className='price'>{formatMoney(property.price)}</div>
+                <div className='description'>{property.description}</div>
+            </div>
+        </div>
     );
 }
 

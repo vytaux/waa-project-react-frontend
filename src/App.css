@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+
+html, body, #root {
+    height: 100%;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .w-full {
     width: 100%;
 }
@@ -7,35 +22,128 @@
 }
 
 .header {
-    background: #4c22c1;
-    padding: 0 12px;
+    background-color: #212121;
+    color: #fff;
+    padding: 5px 37px; /* Adjust padding to make the header slimmer */
+
+    a {
+        color: white;
+    }
 
     nav {
         align-items: center;
+        display: flex;
 
-        .title-link {
-            color: white;
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+
+            &:hover:not(.logo) {
+                background-color: #555;
+                border-radius: 5px;
+            }
         }
 
-        .login-logout-link {
-            color: white;
+        .logo {
+            padding: 0;
+
+            img {
+                width: 213px;
+            }
+        }
+
+        .dashboard-links {
+            margin-left: 15px;
+        }
+
+        .auth-links {
             margin-left: auto;
+
+            a {
+                background-color: #dc3545;
+                border-radius: 5px;
+                padding: 8px 16px;
+                margin-left: 12px;
+            }
         }
 
         .add-property {
-            margin-left: auto;
-            color: white;
+            background-color: #007bff;
+            border-radius: 5px;
+            padding: 8px 16px;
+            margin-left: 19px;
         }
     }
 }
 
-.properties {
-    margin: 12px;
-    gap: 6px;
+.homepage {
+    h1 {
+        text-align: center;
+        margin: 25px 0 7px;
+    }
 
-    .property {
-        padding: 6px;
-        border: 1px solid #ccc;
+    .properties {
+        margin: 0 0 28px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
+        grid-gap: 16px;
+        justify-content: center;
+        padding: 13px 37px;
+
+        .property {
+            position:relative;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+            .picture-link {
+
+                .status-badge {
+                    font-size: 12px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background: #00cc00; /* Green color */
+                    padding: 4px 8px;
+                    border-radius: 0 5px 0 4px;
+                    color: #fff; /* White text */
+                }
+
+                .picture {
+                    border-top-left-radius: 5px;
+                    border-top-right-radius: 5px;
+                    width: 100%;
+                    height: 150px;
+                }
+            }
+
+            .info {
+                padding: 9px 17px 17px;
+            }
+
+            .name {
+                font-size: 18px;
+                font-weight: bold;
+                color: #333;
+                text-decoration: none;
+            }
+
+            .name:hover {
+                color: #007bff;
+            }
+
+            .price {
+                font-size: 16px;
+                color: #555;
+            }
+
+            .description {
+                font-size: 14px;
+                color: #777;
+                margin-top: 10px;
+            }
+        }
     }
 }
 
@@ -55,4 +163,50 @@
         border: 1px solid red;
         background: #f2f2f2;
     }
+}
+
+.footer {
+    margin-top: auto;
+    background: #212121;
+    color: white;
+    padding: 7px 12px;
+
+    a {
+        color: white;
+    }
+}
+
+
+
+
+
+.footer {
+    background-color: #212121;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-info {
+    font-size: 16px;
+}
+
+.footer-developers {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.footer-developers a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+.footer-developers a:hover {
+    text-decoration: underline;
 }
