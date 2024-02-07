@@ -7,11 +7,8 @@ const Header = () => {
     const { currentUser, updateUser } = useContext(UserContext)
     const navigate = useNavigate();
 
-    const logoutHandler = () => {
-        updateUser(null);
-        navigate('/')
-    }
-    
+    const logoutHandler = () => updateUser(null)
+
     return (
         <header className='header'>
             <nav className='w-full flex'>
