@@ -8,16 +8,15 @@ const Property = ({ property }) => {
 
     const pictureUrl = randomPictureProvider();
     const propertyStatus = propertyStatusMapper(property.status);
-    const capitalizedStatus = propertyStatus.charAt(0).toUpperCase() + propertyStatus.slice(1);
 
     return (
         <div className='property'>
             <Link to={`/properties/${property.slug}`} key={property.id} className='picture-link'>
-                <div className={`status-badge ${propertyStatus}`}>{capitalizedStatus}</div>
+                <div className={`status-badge ${propertyStatus}`}>{propertyStatus}</div>
                 <img className='picture' src={pictureUrl} alt=""/>
             </Link>
             <div className="info">
-            <Link to={`/properties/${property.slug}`} key={property.id} className='name'>
+                <Link to={`/properties/${property.slug}`} key={property.id} className='name'>
                     {property.name}
                 </Link>
                 <div className='price'>{formatMoney(property.price)}</div>

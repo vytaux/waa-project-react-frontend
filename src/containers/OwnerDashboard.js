@@ -65,7 +65,7 @@ function OwnerDashboard({ currentUser }) {
                         <th>Id</th>
                         <th>Message</th>
                         <th>Status</th>
-                        <th>Property title</th>
+                        <th>Property name</th>
                         <th>Price</th>
                         {/*<th>Buyer</th>*/}
                         <th>Actions</th>
@@ -77,8 +77,7 @@ function OwnerDashboard({ currentUser }) {
                             <td>{offer.id}</td>
                             <td>{offer.message}</td>
                             <td>{offer.status}</td>
-                            <td>Property title</td>
-                            {/*<td>{offer.property.title}</td>*/}
+                            <td>{offer.property.name}</td>
                             <td>{formatMoney(offer.price)}</td>
                             {/*<td>{offer.buyer.email}</td>*/}
                             <td>

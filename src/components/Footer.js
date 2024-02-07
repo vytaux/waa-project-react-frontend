@@ -11,10 +11,10 @@ const Footer = () => {
                 <div className="footer-developers">
                     🥳 Developed by
                     <a href="https://github.com/vytaux">Vytautas Asmantavicius</a>
-                    <a href="https://github.com/Aakartion">Aakarshan Simkhada</a>
-                    <a href="https://github.com/sameerstha0012">Basanta</a>
-                    <a href="https://github.com/sanjeev-thapa">Sanjeev</a>
                     <a href="https://github.com/TanzimFK">Tanzim</a>
+                    <a href="https://github.com/Aakartion">Aakarshan Simkhada</a>
+                    <a href="https://github.com/sameerstha0012">Basanta Shrestha</a>
+                    <a href="https://github.com/sanjeev-thapa">Sanjeev Thapa</a>
                 </div>
             </div>
         </footer>

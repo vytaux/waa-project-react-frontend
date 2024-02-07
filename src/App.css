@@ -21,6 +21,71 @@ body {
     display: flex;
 }
 
+.form {
+    max-width: 400px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+
+    .form-group {
+        margin-bottom: 20px; /* Adjust the margin between form groups */
+
+        label {
+            display: block;
+            margin-bottom: 5px; /* Adjust the margin below labels */
+            color: #333;
+        }
+
+        textarea,
+        input[type="number"],
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 16px;
+            outline: none; /* Remove default focus outline */
+
+            option {
+                background-color: #fff;
+                color: #333;
+            }
+
+            &::-ms-expand {
+                display: none;
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff; /* Adjust the button color */
+        color: #fff;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #5b5b5b; /* Adjust the hover color */
+        }
+    }
+}
+
+
 .header {
     background-color: #212121;
     color: #fff;
@@ -100,6 +165,7 @@ body {
             .picture-link {
 
                 .status-badge {
+                    text-transform: capitalize;
                     font-size: 12px;
                     position: absolute;
                     top: 0;
@@ -159,21 +225,28 @@ body {
     }
 }
 
-.propertyDetailsWrapper {
-    padding: 12px;
+.property-details-content {
+    padding-left: 37px;
+    height: 100%;
 
-    .propertyDetails {
+    .property-details {
         img {
             border: 1px solid #ccc;
             box-shadow: black 0px 0px 4px;
         }
-        border: 1px solid blue;
+
+        .pictures {
+            .thumbnail {
+                height: 100px;
+            }
+        }
     }
 
     .offerForm {
+        height: 100%;
         width:350px;
-        border: 1px solid red;
         background: #f2f2f2;
+        padding: 3px 23px 53px;
     }
 }
 
@@ -209,63 +282,12 @@ body {
     }
 }
 
-.form {
-    max-width: 400px; /* Adjust the maximum width as needed */
-    margin: 44px auto 26px;
-
-    .form-group {
-        margin-bottom: 20px; /* Adjust the margin between form groups */
-
-        label {
-            display: block;
-            margin-bottom: 5px; /* Adjust the margin below labels */
-            color: #333;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            box-sizing: border-box;
-        }
-
-        select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            color: #333;
-            font-size: 16px;
-            outline: none; /* Remove default focus outline */
-
-            option {
-                background-color: #fff;
-                color: #333;
-            }
-
-            &::-ms-expand {
-                display: none;
-            }
-        }
-    }
-
-    button {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        background-color: #007bff; /* Adjust the button color */
-        color: #fff;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #5b5b5b; /* Adjust the hover color */
-        }
-    }
+.login-form, .register-form {
+    margin-top: 44px;
 }
+
+
+
+
+
+
