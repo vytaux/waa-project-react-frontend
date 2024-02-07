@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
+import {Link, Navigate} from "react-router-dom";
 
 function CustomerDashboard({ currentUser }) {
     const [offersState, setOffersState] = React.useState([])
@@ -40,7 +41,7 @@ function CustomerDashboard({ currentUser }) {
                             <td>{formatMoney(offer.price)}</td>
                             <td>{offer.status}</td>
                             <td>
-                                <button>Edit</button>
+                                <Link to={`/customer/edit-offer/${offer.id}`} state={offer}>Edit</Link>
                                 {offer.property.status !== 'STATUS_CONTINGENT' &&
                                     <button onClick={() => cancelOffer(offer.id)}>Cancel</button>
                                 }

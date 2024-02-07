@@ -98,6 +98,11 @@ const FetchService = {
         return this._call('PUT', `/customers/offers/${offerId}/cancel`, null, {
             Authorization: `Bearer ${accessToken}`
         });
+    },
+    updateOffer(accessToken, id, message, price) {
+        return this._call('PUT', `/customers/offers/${id}`, { message, price }, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 

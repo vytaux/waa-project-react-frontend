@@ -11,6 +11,7 @@ import CustomerDashboard from "../containers/CustomerDashboard";
 import Property from "../components/Property";
 import PropertyDetails from "../components/PropertyDetails";
 import EditProperty from "../components/EditProperty";
+import EditOffer from "../components/EditOffer";
 
 function PageRoutes({ currentUser, setCurrentUser }) {
     return (
@@ -32,6 +33,7 @@ function PageRoutes({ currentUser, setCurrentUser }) {
                 {/*ROLE_ADMIN || ROLE_OWNER*/}
                 <Route path='/owner/add-property' element={<Navigate to="/owner/edit-property" replace />} />
                 <Route path='/owner/edit-property/:id?' element={<EditProperty currentUser={currentUser} />} />
+                <Route path='/customer/edit-offer/:id' element={<EditOffer currentUser={currentUser} />} />
             </Route>
 
             {/*Show Register/Signup page*/}
