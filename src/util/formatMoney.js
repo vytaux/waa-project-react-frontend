@@ -1,5 +1,10 @@
 function formatMoney(amount, locale = 'en-US', currency = 'USD') {
-    return amount.toLocaleString(locale, {
+    let amountNumber = Number(amount);
+    if (isNaN(amountNumber)) {
+        amountNumber = 0;
+    }
+
+    return amountNumber.toLocaleString(locale, {
         style: 'currency',
         currency,
         minimumFractionDigits: 0,

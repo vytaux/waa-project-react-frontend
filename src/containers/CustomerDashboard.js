@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import FetchService from "../service/FetchService";
+import formatMoney from "../util/formatMoney";
 
 function CustomerDashboard({ currentUser }) {
     const [offersState, setOffersState] = React.useState([])
@@ -25,6 +26,7 @@ function CustomerDashboard({ currentUser }) {
                         <th>Id</th>
                         <th>Property</th>
                         <th>Message</th>
+                        <th>Price</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
@@ -33,8 +35,9 @@ function CustomerDashboard({ currentUser }) {
                     {offersState.map(offer => (
                         <tr key={offer.id}>
                             <td>{offer.id}</td>
-                            <td>{offer.propertyId}</td>
+                            <td>{offer.property.name}</td>
                             <td>{offer.message}</td>
+                            <td>{formatMoney(offer.price)}</td>
                             <td>{offer.status}</td>
                             <td>
                                 <button>Edit</button>
