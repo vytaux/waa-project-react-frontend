@@ -104,10 +104,22 @@ body {
                     position: absolute;
                     top: 0;
                     right: 0;
-                    background: #00cc00; /* Green color */
-                    padding: 4px 8px;
+                    background: black;
+                    padding: 4px 20px;
                     border-radius: 0 5px 0 4px;
                     color: #fff; /* White text */
+                }
+
+                .available {
+                    background: #00cc00;
+                }
+
+                .pending {
+                    background: #ffcc00;
+                }
+
+                .contingent {
+                    background: #ff9900;
                 }
 
                 .picture {

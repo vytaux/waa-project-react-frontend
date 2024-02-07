@@ -2,15 +2,18 @@ import React from "react";
 import formatMoney from "../util/formatMoney";
 import {Link} from "react-router-dom";
 import randomPictureProvider from "../util/randomPictureProvider";
+import propertyStatusMapper from "../util/propertyStatusMapper";
 
 const Property = ({ property }) => {
 
     const pictureUrl = randomPictureProvider();
+    const propertyStatus = propertyStatusMapper(property.status);
+    const capitalizedStatus = propertyStatus.charAt(0).toUpperCase() + propertyStatus.slice(1);
 
     return (
         <div className='property'>
             <Link to={`/properties/${property.slug}`} key={property.id} className='picture-link'>
-                <div className='status-badge'>{property.status}</div>
+                <div className={`status-badge ${propertyStatus}`}>{capitalizedStatus}</div>
                 <img className='picture' src={pictureUrl} alt=""/>
             </Link>
             <div className="info">
