@@ -1,22 +1,14 @@
-import React, {useContext} from "react";
+import React from "react";
 import formatMoney from "../util/formatMoney";
 import {Link} from "react-router-dom";
 import randomPictureProvider from "../util/randomPictureProvider";
 import propertyStatusMapper from "../util/propertyStatusMapper";
-import FetchService from "../service/FetchService";
-import UserContext from "../context/UserContext";
+import Favourite from "./Favourite/Favourite";
 
-const Property = ({ property }) => {
-
-    const currentUser = useContext(UserContext);
+const Property = ({ property, savedPropertiesState }) => {
 
     const pictureUrl = randomPictureProvider();
     const propertyStatus = propertyStatusMapper(property.status);
-
-    const handleAddToSavedPropertiesList = () => {
-        FetchService.addToSavedPropertiesList(currentUser.accessToken, property.id)
-            .then(response => console.log(response));
-    }
 
     return (
         <div className='property'>
@@ -30,7 +22,7 @@ const Property = ({ property }) => {
                 </Link>
                 <div className='price'>{formatMoney(property.price)}</div>
                 <div className='description'>{property.description}</div>
-                <button onClick={handleAddToSavedPropertiesList}>Save</button>
+                <Favourite property={property} savedPropertiesState={savedPropertiesState}/>
             </div>
         </div>
     );
