@@ -1,5 +1,5 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import FetchService from "../service/FetchService";
 import hasRole from "../util/hasRole";
 
@@ -24,34 +24,49 @@ const EditProperty = ({ currentUser }) => {
             description: description.current.value
         }
 
-        // new
-        console.log(id)
-        if (id === undefined) {
-            console.log('create')
-            FetchService.createProperty(currentUser.accessToken, property)
-                .then(response => navigate('/owner'))
-        // update
-        } else {
-            console.log('update')
-            FetchService.updateProperty(currentUser.accessToken, id, property)
-                .then(response => navigate('/owner'))
-        }
+        if (!name.current.value)
+            alert("Please enter name");
+        else if (!slug.current.value)
+            alert("Please enter slug")
+        else if (!price.current.value)
+            alert("Please enter price")
+        else if (!description.current.value)
+            alert("Please enter description")
+        else
+            if (id === undefined) {
+                console.log('create')
+                FetchService.createProperty(currentUser.accessToken, property)
+                    .then(response => navigate('/owner')).catch(e => {
+                        console.log(e)
+                        alert(e.response.data);
+                    })
+                // update
+            } else {
+                console.log('update')
+                FetchService.updateProperty(currentUser.accessToken, id, property)
+                    .then(response => navigate('/owner'))
+                    .catch(e => {
+                        console.log(e)
+                        alert(e.response.data);
+                    })
+            }
     }
 
     return (
         <main className='edit-property-content'>
-            <div className="form">
+            <h1 style={{ textAlign: "center" }} >List your property on the Market</h1>
+            <div style={{ textAlign: "center", margin: "auto" }} className="form">
                 <div className='form-group'>
                     <label>Name</label>
-                    <input type="text" ref={name} defaultValue={state?.name}/>
+                    <input type="text" ref={name} defaultValue={state?.name} />
                 </div>
                 <div className='form-group'>
                     <label>Slug</label>
-                    <input type="text" ref={slug} defaultValue={state?.slug}/>
+                    <input type="text" ref={slug} defaultValue={state?.slug} />
                 </div>
                 <div className='form-group'>
                     <label>Price</label>
-                    <input type="number" ref={price} defaultValue={state?.price}/>
+                    <input type="number" ref={price} defaultValue={state?.price} />
                 </div>
                 <div className='form-group'>
                     <label>Description</label>

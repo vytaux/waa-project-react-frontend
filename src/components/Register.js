@@ -19,8 +19,8 @@ function Register() {
         else
             FetchService.register(email.current.value, password.current.value, role.current.value)
                 .then(response => {
-                    alert("Registration Successful")
-                    navigate('/')
+                    alert("Registration Successful, please login")
+                    navigate('/login')
                 }).catch((e) => {
                     console.log(e)
                     alert(e.response.data);
