@@ -55,9 +55,11 @@ function CustomerDashboard({ currentUser }) {
                             <td>{formatMoney(offer.price)}</td>
                             <td>{offer.status}</td>
                             <td>
-                                <Link to={`/customer/edit-offer/${offer.id}`} state={offer}>Edit</Link>
                                 {offer.property.status !== 'STATUS_CONTINGENT' &&
-                                    <button onClick={() => cancelOffer(offer.id)}>Cancel</button>
+                                    <React.Fragment>
+                                        <Link to={`/customer/edit-offer/${offer.id}`} state={offer}>Edit</Link>
+                                        <button onClick={() => cancelOffer(offer.id)}>Cancel</button>
+                                    </React.Fragment>
                                 }
                             </td>
                         </tr>
