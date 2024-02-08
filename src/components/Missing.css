@@ -1,0 +1,36 @@
+.not-found-page {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+
+    .content {
+        padding-top: 30px;
+        text-align: center;
+
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+            color: #ff5252;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 46px;
+            color: #333;
+        }
+
+        a {
+            color: white;
+            background-color: #dc3545;
+            border-radius: 5px;
+            padding: 13px 22px;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #555;
+                border-radius: 5px;
+            }
+        }
+    }
+}
