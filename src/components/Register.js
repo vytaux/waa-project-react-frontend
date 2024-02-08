@@ -10,10 +10,20 @@ function Register() {
     const navigate = useNavigate();
 
     const register = () => {
-
-        // TODO some kind of confirmation
-        FetchService.register(email.current.value, password.current.value, role.current.value)
-            .then(response => navigate('/'));
+        if (!email.current.value)
+            alert("Please enter email")
+        else if (!password.current.value)
+            alert("Please enter password")
+        else if (!role.current.value)
+            alert("Please select a role")
+        else
+            FetchService.register(email.current.value, password.current.value, role.current.value)
+                .then(response => {
+                    alert("Registration Successful")
+                    navigate('/')
+                }).catch((e) => {
+                    alert("Failed " + e);
+                });
 
     }
 
@@ -22,11 +32,11 @@ function Register() {
             <div className="form register-form mx-auto">
                 <div className="form-group">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email" ref={email}/>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" ref={email} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" ref={password}/>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" ref={password} />
                 </div>
                 <div className="form-group">
                     <label htmlFor="roleDropdown">Select an option: </label>
