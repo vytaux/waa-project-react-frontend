@@ -19,11 +19,12 @@ const Header = () => {
                     {hasRole(currentUser, 'ADMIN') ? <Link to='/admin'>Admin</Link> : null}
                     {hasRole(currentUser, 'OWNER') ? <Link to='/owner'>Owner</Link> : null}
                     {hasRole(currentUser, 'CUSTOMER') ? <Link to='/customer'>Customer</Link> : null}
+                    {currentUser ? <Link to="/messages">Messages</Link> : null}
                 </div>
                 <div className="auth-links">
                     {!currentUser ? <Link to='/register'>Register</Link> : null}
                     {!currentUser ? <Link to='/login'>Login</Link> : null}
-                    {currentUser ? <a href='#' onClick={logoutHandler}>Logout</a> : null}
+                    {currentUser ? <Link onClick={logoutHandler}>Logout</Link> : null}
                 </div>
             </nav>
         </header>

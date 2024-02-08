@@ -12,36 +12,43 @@ import Property from "../components/Property";
 import PropertyDetails from "../components/PropertyDetails";
 import EditProperty from "../components/EditProperty";
 import EditOffer from "../components/EditOffer";
+import Message from '../containers/Message'
+import UserContext from '../context/UserContext'
 
 function PageRoutes({ currentUser, setCurrentUser }) {
     return (
-        <Routes>
-            <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />
+        <UserContext.Provider value={currentUser}>
+            <Routes>
+                <Route path='/login' element={<Login setCurrentUser={setCurrentUser} />} />
 
-            {/*Show properties homepage*/}
-            <Route path='/' element={<Homepage />} />
-            <Route path='/properties/:slug' element={<PropertyDetails currentUser={currentUser} />} />
+                {/*Show properties homepage*/}
+                <Route path='/' element={<Homepage />} />
+                <Route path='/properties/:slug' element={<PropertyDetails currentUser={currentUser} />} />
 
-            <Route element={<RequireAuth currentUser={currentUser} />}>
-                {/*ROLE_ADMIN*/}
-                <Route path='/admin' element={<AdminDashboard currentUser={currentUser} />} />
-                {/*ROLE_OWNER*/}
-                <Route path='/owner' element={<OwnerDashboard currentUser={currentUser} />} />
-                {/*ROLE_CUSTOMER*/}
-                <Route path='/customer' element={<CustomerDashboard currentUser={currentUser} />} />
+                <Route element={<RequireAuth currentUser={currentUser} />}>
+                    {/*ROLE_ADMIN*/}
+                    <Route path='/admin' element={<AdminDashboard currentUser={currentUser} />} />
+                    {/*ROLE_OWNER*/}
+                    <Route path='/owner' element={<OwnerDashboard currentUser={currentUser} />} />
+                    {/*ROLE_CUSTOMER*/}
+                    <Route path='/customer' element={<CustomerDashboard currentUser={currentUser} />} />
 
-                {/*ROLE_ADMIN || ROLE_OWNER*/}
-                <Route path='/owner/add-property' element={<Navigate to="/owner/edit-property" replace />} />
-                <Route path='/owner/edit-property/:id?' element={<EditProperty currentUser={currentUser} />} />
-                <Route path='/customer/edit-offer/:id' element={<EditOffer currentUser={currentUser} />} />
-            </Route>
+                    {/*ROLE_ADMIN || ROLE_OWNER*/}
+                    <Route path='/owner/add-property' element={<Navigate to="/owner/edit-property" replace />} />
+                    <Route path='/owner/edit-property/:id?' element={<EditProperty currentUser={currentUser} />} />
+                    <Route path='/customer/edit-offer/:id' element={<EditOffer currentUser={currentUser} />} />
 
-            {/*Show Register/Signup page*/}
-            <Route path='/register' element={<Register />} />
+                    {/* Authenticated */}
+                    <Route path='/messages' element={<Message />} />
+                </Route>
 
-            {/*beautiful 404*/}
-            <Route path="*" element={<Missing />} />
-        </Routes >
+                {/*Show Register/Signup page*/}
+                <Route path='/register' element={<Register />} />
+
+                {/*beautiful 404*/}
+                <Route path="*" element={<Missing />} />
+            </Routes >
+        </UserContext.Provider>
     )
 }
 
