@@ -1,6 +1,6 @@
 import React from 'react'
 import {Navigate, Route, Routes} from 'react-router-dom'
-import Missing from '../components/Missing'
+import Missing from '../components/Missing/Missing'
 import Homepage from '../containers/Homepage'
 import Login from '../components/Login'
 import Register from '../components/Register'
