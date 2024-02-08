@@ -103,6 +103,21 @@ const FetchService = {
         return this._call('PUT', `/customers/offers/${id}`, { message, price }, {
             Authorization: `Bearer ${accessToken}`
         });
+    },
+    addToSavedPropertiesList(accessToken, propertyId) {
+        return this._call('PUT', `/customers/0/saved-properties`, { propertyId }, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    getSavedProperties(accessToken) {
+        return this._call('GET', '/customers/0/saved-properties', null, {
+            Authorization: `Bearer ${accessToken}`
+        });
+    },
+    removePropertyFromSavedList(accessToken, propertyId) {
+        return this._call('DELETE', `/customers/0/saved-properties/${propertyId}`, null, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 
