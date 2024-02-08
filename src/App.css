@@ -210,6 +210,7 @@ table {
         padding: 13px 37px;
 
         .property {
+            width: 225px;
             position:relative;
             background-color: #f9f9f9;
             border-radius: 8px;
