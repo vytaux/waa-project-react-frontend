@@ -17,7 +17,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Header />
-            <PageRoutes currentUser={currentUser} setCurrentUser={updateUser} />
+                <PageRoutes currentUser={currentUser} setCurrentUser={updateUser} />
             <Footer />
         </BrowserRouter>
     );
