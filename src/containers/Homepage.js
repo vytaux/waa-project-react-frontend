@@ -1,30 +1,42 @@
-import React, { useEffect } from "react";
+import React, {useContext, useEffect} from "react";
 import FetchService from "../service/FetchService";
 import Property from "../components/Property";
+import UserContext from "../context/UserContext";
+
 
 const Homepage = () => {
-  const [properties, setProperties] = React.useState([]);
 
-  useEffect(() => {
-    FetchService.getAllProperties()
-      .then((response) => {
-        setProperties(response.data);
-      })
-      .catch((e) => {
-        console.log("error " + e);
-      });
-  }, []);
+    const currentUser = useContext(UserContext);
 
-  return (
-    <div className="homepage">
-      <h1>Trending Properties</h1>
-      <div className="properties">
-        {properties.map((property) => (
-          <Property key={property.id} property={property} />
-        ))}
-      </div>
-    </div>
-  );
-};
+    const [properties, setProperties] = React.useState([]);
+    const [savedPropertiesState, setSavedPropertiesState] = React.useState([]);
+
+    useEffect(() => {
+        FetchService.getAllProperties()
+            .then(response => {
+                setProperties(response.data);
+            }).catch(e => {
+                console.log("error " + e)
+            }
+            );
+
+        // yikes
+        if (currentUser) {
+            FetchService.getSavedProperties(currentUser.accessToken)
+                .then(response => setSavedPropertiesState(response.data))
+        }
+    }, []);
+
+    return (
+        <div className='homepage'>
+            <h1>Trending Properties</h1>
+            <div className='properties'>
+                {properties.map(property => (
+                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState}/>
+                ))}
+            </div>
+        </div>
+    );
+}
 
 export default Homepage;
