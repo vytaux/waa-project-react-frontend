@@ -31,7 +31,8 @@ const Login = ({ setCurrentUser }) => {
 
                     navigate('/')
                 }).catch((e) => {
-                    alert("Failed " + e);
+                    console.log(e)
+                    alert("Invalid email/password");
                 });
         ;
     }

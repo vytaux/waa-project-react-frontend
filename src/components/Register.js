@@ -22,7 +22,8 @@ function Register() {
                     alert("Registration Successful")
                     navigate('/')
                 }).catch((e) => {
-                    alert("Failed " + e);
+                    console.log(e)
+                    alert(e.response.data);
                 });
 
     }
