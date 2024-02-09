@@ -15,8 +15,6 @@ We're a group of students from the CS 545 course who worked on this project:
 
 ## NextHome | #1 Real Estate Platform in the World! 🌎
 
----
-
 ## Project Overview
 
 Welcome to our CS 545 project! Our aim is to create a Property Management System using Spring Boot for the backend and React for the frontend. During this project, we gained invaluable hands-on experience in web application architecture.
@@ -60,7 +58,6 @@ Welcome to our CS 545 project! Our aim is to create a Property Management System
 - Email notifications offer placement and acceptance.
 - Technical aspects: Neat code organization, managed packages, folders, and files.
 
----
 ## Project Setup and Installation
 
 ### Prerequisites
