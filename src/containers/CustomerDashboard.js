@@ -30,7 +30,14 @@ function CustomerDashboard({ currentUser }) {
     );
   };
 
-  const handleCancelContingent = (offerId) => {};
+  const turnOnContingent = (offerId) => {
+    FetchService.turnPropertyContingentForCustomer(
+      currentUser.accessToken,
+      offerId
+    )
+      .then((response) => fetchOffers())
+      .catch((error) => console.log(error));
+  };
 
   const removePropertyFromSavedList = (propertyId) => {
     FetchService.removePropertyFromSavedList(
@@ -74,13 +81,13 @@ function CustomerDashboard({ currentUser }) {
                   </React.Fragment>
                 )}
               </td>
-              {offer.status === "STATUS_ACCEPTED" && (
-                <td>
-                  <button onClick={handleCancelContingent}>
+              <td>
+                {offer.status === "STATUS_ACCEPTED" && (
+                  <button onClick={() => turnOnContingent(offer.id)}>
                     Turn on Contingent
                   </button>
-                </td>
-              )}
+                )}
+              </td>
             </tr>
           ))}
         </tbody>
