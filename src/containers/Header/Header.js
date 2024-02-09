@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import UserContext from "../context/UserContext";
-import hasRole from "../util/hasRole";
+import UserContext from "../../context/UserContext";
+import hasRole from "../../util/hasRole";
+import './Header.css';
 
 const Header = () => {
     const { currentUser, updateUser } = useContext(UserContext)

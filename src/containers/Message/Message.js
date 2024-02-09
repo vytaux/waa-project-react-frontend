@@ -1,8 +1,9 @@
 import { useContext, useState } from 'react'
-import Messages from '../components/Messages'
-import useFetch from '../hooks/useFetch'
-import MessageSession from '../components/MessageSession';
-import UserContext from '../context/UserContext';
+import Messages from '../../components/Messages/Messages'
+import useFetch from '../../hooks/useFetch'
+import MessageSession from '../../components/MessageSession';
+import UserContext from '../../context/UserContext';
+import './Message.css';
 
 export default function Message() {
 

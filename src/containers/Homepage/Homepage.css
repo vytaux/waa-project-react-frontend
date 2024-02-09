@@ -1,0 +1,15 @@
+.homepage {
+    h1 {
+        text-align: center;
+        margin: 25px 0 7px;
+    }
+
+    .properties {
+        margin: 0 0 28px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, max-content));
+        grid-gap: 16px;
+        justify-content: center;
+        padding: 13px 37px;
+    }
+}

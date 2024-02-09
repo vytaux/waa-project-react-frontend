@@ -1,0 +1,55 @@
+.header {
+    background-color: #212121;
+    color: #fff;
+    padding: 5px 37px; /* Adjust padding to make the header slimmer */
+
+    a {
+        color: white;
+    }
+
+    nav {
+        align-items: center;
+        display: flex;
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+
+            &:hover:not(.logo) {
+                background-color: #555;
+                border-radius: 5px;
+            }
+        }
+
+        .logo {
+            padding: 0;
+
+            img {
+                width: 213px;
+            }
+        }
+
+        .dashboard-links {
+            margin-left: 15px;
+        }
+
+        .auth-links {
+            margin-left: auto;
+
+            a {
+                background-color: #dc3545;
+                border-radius: 5px;
+                padding: 8px 16px;
+                margin-left: 12px;
+            }
+        }
+
+        .add-property {
+            background-color: #007bff;
+            border-radius: 5px;
+            padding: 8px 16px;
+            margin-left: 19px;
+        }
+    }
+}

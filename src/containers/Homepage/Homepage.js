@@ -1,8 +1,8 @@
 import React, {useContext, useEffect} from "react";
-import FetchService from "../service/FetchService";
-import Property from "../components/Property";
-import UserContext from "../context/UserContext";
-
+import FetchService from "../../service/FetchService";
+import Property from "../../components/Property/Property";
+import UserContext from "../../context/UserContext";
+import './Homepage.css';
 
 const Homepage = () => {
 

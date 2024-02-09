@@ -1,11 +1,11 @@
 import './App.css';
 import { BrowserRouter } from "react-router-dom";
-import Header from "./containers/Header";
+import Header from "./containers/Header/Header";
 import PageRoutes from './routes/PageRoutes';
 import { useContext, useEffect } from 'react';
 import UserContext from "./context/UserContext";
 import hasRole from './util/hasRole';
-import Footer from "./containers/Footer";
+import Footer from "./containers/Footer/Footer";
 
 
 const App = () => {
