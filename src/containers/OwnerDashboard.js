@@ -7,6 +7,9 @@ function OwnerDashboard({ currentUser }) {
   const [ownersOffersState, setOwnersOffersState] = React.useState([]);
   const [ownersPropertiesState, setOwnersPropertiesState] = React.useState([]);
 
+  const [reload, setReload] = React.useState(true);
+
+
   const fetchOwnersOffers = () => {
     FetchService.getOwnersOffers(currentUser.accessToken).then((response) => {
       setOwnersOffersState(response.data);
@@ -24,41 +27,51 @@ function OwnerDashboard({ currentUser }) {
   useEffect(() => {
     fetchOwnersOffers();
     fetchOwnersProperties();
-  }, []);
+  }, [reload]);
 
-  const acceptOffer = (offerId) => {
-    FetchService.acceptOffer(currentUser.accessToken, offerId).then(
+  const acceptOffer = (offer) => {
+    if (offer.status === "STATUS_CANCELLED")
+      alert("Offer was cancelled by customer")
+    else 
+    FetchService.acceptOffer(currentUser.accessToken, offer.id).then(
       (response) => {
-        fetchOwnersOffers();
-        fetchOwnersProperties();
+        setReload(!reload);
       }
     );
   };
 
-  const rejectOffer = (offerId) => {
-    FetchService.rejectOffer(currentUser.accessToken, offerId).then(
-      (response) => fetchOwnersOffers()
+  const rejectOffer = (offer) => {
+    FetchService.rejectOffer(currentUser.accessToken, offer.id).then(
+      (response) => setReload(!reload)
     );
-  };
-
-  const turnPropertyContingent = (propertyId) => {
-    FetchService.turnPropertyContingent(
-      currentUser.accessToken,
-      propertyId
-    ).then((response) => fetchOwnersProperties());
   };
 
   const cancelPropertyContingency = (propertyId) => {
     FetchService.cancelPropertyContingency(
       currentUser.accessToken,
       propertyId
-    ).then((response) => fetchOwnersProperties());
+    ).then((response) => setReload(!reload));
   };
 
-  const deleteProperty = (propertyId) => {
-    FetchService.deleteProperty(currentUser.accessToken, propertyId).then(
-      (response) => fetchOwnersProperties()
-    );
+  const sellPropertyContingency = (propertyId) => {
+
+    FetchService.sellProperty(
+      currentUser.accessToken,
+      propertyId
+    ).then((response) => {
+      alert("SOLD! Check email")
+      setReload(!reload)
+    });
+  };
+
+  const deleteProperty = (property) => {
+    if (property.status === "STATUS_PENDING" ||
+      property.status === "STATUS_CONTINGENT")
+      alert("Cannot delete while property in Pending")
+    else
+      FetchService.deleteProperty(currentUser.accessToken, property.id).then(
+        (response) => setReload(!reload)
+      );
   };
 
   return (
@@ -110,21 +123,26 @@ function OwnerDashboard({ currentUser }) {
               <td>{property.name}</td>
               <td>{property.status}</td>
               <td>
-                <button onClick={() => turnPropertyContingent(property.id)}>
-                  Turn contingent
-                </button>
-                <button onClick={() => cancelPropertyContingency(property.id)}>
-                  Cancel contingency
-                </button>
+
                 <Link
                   to={`/owner/edit-property/${property.id}`}
                   state={property}
                 >
                   Edit property
                 </Link>
-                <button onClick={() => deleteProperty(property.id)}>
+                <button onClick={() => deleteProperty(property)}>
                   Delete property
                 </button>
+
+                {property.status === "STATUS_CONTINGENT" && <button onClick={() => cancelPropertyContingency(property.id)}>
+                  Cancel contingency
+                </button>}
+
+                {property.status === "STATUS_CONTINGENT" &&
+                  <button onClick={() => sellPropertyContingency(property.id)}>
+                    Sell Property
+                  </button>}
+
               </td>
             </tr>
           ))}

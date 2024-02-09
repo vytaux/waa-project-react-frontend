@@ -175,6 +175,17 @@ const FetchService = {
       }
     );
   },
+
+  sellProperty(accessToken, id) {
+    return this._call(
+      "PUT",
+      `/owners/properties/${id}/sellProperty`,
+      null,
+      {
+        Authorization: `Bearer ${accessToken}`,
+      }
+    );
+  }
 };
 
 export default FetchService;
