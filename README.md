@@ -70,7 +70,6 @@ docker-compose up -d
 ```
 
 ### Frontend Setup
-- Navigate to the `frontend` directory.
 - Install dependencies: `npm install`
 - Start the React application: `npm start`
 - Access the application at `http://localhost:3000`
