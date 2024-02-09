@@ -17,8 +17,11 @@ const FetchService = {
             }
         });
     },
-    getAllProperties() {
-        return this._call('GET', '/properties');
+    getAllProperties(name, desc, min, max) {
+        return this._call('GET', `/properties?name=${name}&description=${desc}&minPrice=${min}&maxPrice=${max}&`);
+    },
+    getAllPropertiesByCriteriaSearch() {
+        return this._call('GET', '/properties/search');
     },
     login(email, password) {
         return this._call('POST', '/auth/login', { email, password });
