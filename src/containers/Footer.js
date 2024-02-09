@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <div className="footer-content">
-                <div className="footer-info">NextHome © 2023</div>
+                <div className="footer-info">NextHome © 2024</div>
                 <div className="footer-developers">
                     🥳 Developed by
                     <a href="https://github.com/vytaux">Vytautas Asmantavicius</a>
