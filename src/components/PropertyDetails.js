@@ -52,16 +52,20 @@ const PropertyDetails = ({ currentUser }) => {
       {!hasRole(currentUser, "OWNER") && (
           <div>
             <div className="form offerForm">
-              <h3>Contact Owner</h3>
-              <div className="form">
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea ref={contactOwnerMessage}></textarea>
-                </div>
-                <button onClick={handleContactOwner}>Contact owner</button>
-              </div>
+              {currentUser && (
+                  <React.Fragment>
+                    <h3>Contact Owner</h3>
+                    <div className="form">
+                      <div className="form-group">
+                        <label>Message</label>
+                        <textarea ref={contactOwnerMessage}></textarea>
+                      </div>
+                      <button onClick={handleContactOwner}>Contact owner</button>
+                    </div>
 
-              <br/>
+                    <br/>
+                  </React.Fragment>
+              )}
 
               <h3>Make an Offer</h3>
               <div className="form-group">
