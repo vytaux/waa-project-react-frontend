@@ -3,7 +3,7 @@
 
 ## Meet "The A Team"! 🚀
 
-- **Professor Muhyieddin Al-Tarawneh** who helped us achieve the project goals with ease. He gave us excellent advice and insights during the whole development process. 
+- **Prof. Muhyieddin Al-Tarawneh** who helped us achieve the project goals with ease. He gave us excellent advice and insights during the whole development process. 
 - Vytautas Asmantavicius
 - Tanzim Islam Chowdhury
 - Aakarshan Simkhada
