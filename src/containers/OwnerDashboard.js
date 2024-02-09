@@ -111,9 +111,8 @@ function OwnerDashboard({ currentUser }) {
                             <td>{property.name}</td>
                             <td>{property.status}</td>
                             <td>
-                                <button onClick={() => turnPropertyContingent(property.id)}>Turn contingent</button>
-                                <button onClick={() => cancelPropertyContingency(property.id)}>Cancel contingency
-                                </button>
+                                {/* <button onClick={() => turnPropertyContingent(property.id)}>Turn contingent</button> */}
+                                { property.status === "STATUS_CONTINGENT" && <button onClick={() => cancelPropertyContingency(property.id)}>Cancel contingency</button> }
                                 <Link to={`/owner/edit-property/${property.id}`} state={property}>Edit property</Link>
                                 <button onClick={() => deleteProperty(property.id)}>Delete property</button>
                             </td>
