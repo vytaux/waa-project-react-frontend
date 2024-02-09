@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import Header from "./containers/Header/Header";
 import PageRoutes from './routes/PageRoutes';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import UserContext from "./context/UserContext";
 import Footer from "./containers/Footer/Footer";
 
