@@ -3,8 +3,6 @@
 
 ## Meet "The A Team"! 🚀
 
-We're a group of students from the CS 545 course who worked on this project:
-
 - Vytautas Asmantavicius
 - Tanzim Islam Chowdhury
 - Aakarshan Simkhada
@@ -17,7 +15,7 @@ We're a group of students from the CS 545 course who worked on this project:
 
 ## Project Overview
 
-Welcome to our CS 545 project! Our aim is to create a Property Management System using Spring Boot for the backend and React for the frontend. During this project, we gained invaluable hands-on experience in web application architecture.
+Welcome to our CS 545 project! This is a Property Management System using Spring Boot for the backend and React for the frontend. During this project, we gained invaluable hands-on experience in web application architecture.
 
 
 ## Technologies Used
