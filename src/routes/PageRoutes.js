@@ -8,7 +8,6 @@ import RequireAuth from "../components/RequireAuth";
 import AdminDashboard from "../containers/AdminDashboard";
 import OwnerDashboard from "../containers/OwnerDashboard";
 import CustomerDashboard from "../containers/CustomerDashboard";
-import Property from "../components/Property/Property";
 import PropertyDetails from "../components/PropertyDetails/PropertyDetails";
 import EditProperty from "../components/EditProperty";
 import EditOffer from "../components/EditOffer";
