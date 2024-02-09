@@ -1,4 +1,6 @@
 .property {
+    display: flex;
+    flex-direction: column;
     width: 225px;
     position:relative;
     background-color: #f9f9f9;
@@ -42,6 +44,7 @@
     .info {
         position: relative;
         padding: 9px 17px 17px;
+        flex-grow: 1;
     }
 
     .name {
