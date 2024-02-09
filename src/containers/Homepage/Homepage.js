@@ -4,6 +4,7 @@ import FetchService from "../../service/FetchService";
 import Property from "../../components/Property/Property";
 import UserContext from "../../context/UserContext";
 import './Homepage.css';
+import hasRole from "../../util/hasRole";
 
 const Homepage = () => {
     const inputName = useRef(null);
@@ -29,7 +30,7 @@ const Homepage = () => {
         // else
 
         // yikes
-        if (currentUser) {
+        if (hasRole(currentUser, "CUSTOMER")) {
             FetchService.getSavedProperties(currentUser.accessToken)
                 .then(response => setSavedPropertiesState(response.data))
         }
