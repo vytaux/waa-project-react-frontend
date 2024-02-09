@@ -1,8 +1,9 @@
-import React, { useContext, useEffect, useRef } from "react";
-import FetchService from "../service/FetchService";
-import Property from "../components/Property";
-import UserContext from "../context/UserContext";
 
+import React, { useContext, useEffect, useRef } from "react";
+import FetchService from "../../service/FetchService";
+import Property from "../../components/Property/Property";
+import UserContext from "../../context/UserContext";
+import './Homepage.css';
 
 const Homepage = () => {
     const inputName = useRef(null);

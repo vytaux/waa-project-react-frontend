@@ -1,0 +1,79 @@
+.content {
+    width: 80%;
+    height: 100%;
+
+    .content-message {
+        background-color: #efefef;
+        padding: 1em;
+        height: 80%;
+        overflow-y: scroll;
+
+        .recieved {
+            display: flex;
+            margin-bottom: 1em;
+
+            img {
+                width: 50px;
+                height: 50px;
+                margin-right: 0.5em;
+            }
+
+            .recieved-box {
+                background-color: white;
+                padding: 0.5em 1.5em;
+                border-radius: 15px;
+                border-top-left-radius: 0px;
+                width: fit-content;
+            }
+
+            .recieved-user {
+                font-weight: bold;
+                font-size: 14px;
+                color: #3a3a3a;
+            }
+
+            .recieved-message {
+                font-size: 15px;
+                color: #111111;
+            }
+        }
+
+        .sent {
+            background-color: #007bff;
+            color: white;
+            padding: 0.5em 1.5em;
+            border-radius: 15px;
+            border-top-right-radius: 0px;
+            width: fit-content;
+            margin-left: auto;
+            margin-bottom: 1em;
+        }
+    }
+
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+
+        input, button {
+            font-size: 15px;
+            padding: 1em;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            border: 1px solid #aeaeae;
+            margin-right: 1em;
+        }
+
+        button {
+            width: fit-content;
+            border: 1px solid #007bff;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
+    }
+}

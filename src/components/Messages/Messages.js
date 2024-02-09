@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
-import MessageBox from './MessageBox';
-import useFetch from '../hooks/useFetch';
-import UserContext from '../context/UserContext';
-import axios from '../config/Api';
+import MessageBox from '../MessageBox';
+import useFetch from '../../hooks/useFetch';
+import UserContext from '../../context/UserContext';
+import axios from '../../config/Api';
+import './Messages.css';
 
 export default function Messages(props) {
 

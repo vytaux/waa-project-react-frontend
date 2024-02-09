@@ -1,9 +1,10 @@
 import React from "react";
-import formatMoney from "../util/formatMoney";
+import formatMoney from "../../util/formatMoney";
 import {Link} from "react-router-dom";
-import randomPictureProvider from "../util/randomPictureProvider";
-import propertyStatusMapper from "../util/propertyStatusMapper";
-import Favourite from "./Favourite/Favourite";
+import randomPictureProvider from "../../util/randomPictureProvider";
+import propertyStatusMapper from "../../util/propertyStatusMapper";
+import Favourite from "../Favourite/Favourite";
+import './Property.css';
 
 const Property = ({ property, savedPropertiesState }) => {
 

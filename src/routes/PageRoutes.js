@@ -1,18 +1,18 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import Missing from "../components/Missing/Missing";
-import Homepage from "../containers/Homepage";
+import Homepage from "../containers/Homepage/Homepage";
 import Login from "../components/Login";
 import Register from "../components/Register";
 import RequireAuth from "../components/RequireAuth";
 import AdminDashboard from "../containers/AdminDashboard";
 import OwnerDashboard from "../containers/OwnerDashboard";
 import CustomerDashboard from "../containers/CustomerDashboard";
-import Property from "../components/Property";
-import PropertyDetails from "../components/PropertyDetails";
+import Property from "../components/Property/Property";
+import PropertyDetails from "../components/PropertyDetails/PropertyDetails";
 import EditProperty from "../components/EditProperty";
 import EditOffer from "../components/EditOffer";
-import Message from "../containers/Message";
+import Message from "../containers/Message/Message";
 import UserContext from "../context/UserContext";
 
 function PageRoutes({ currentUser, setCurrentUser }) {

@@ -1,0 +1,24 @@
+.property-details-content {
+    padding-left: 37px;
+    height: 100%;
+
+    .property-details {
+        img {
+            border: 1px solid #ccc;
+            box-shadow: black 0px 0px 4px;
+        }
+
+        .pictures {
+            .thumbnail {
+                height: 100px;
+            }
+        }
+    }
+
+    .offerForm {
+        height: 100%;
+        width:350px;
+        background: #f2f2f2;
+        padding: 3px 23px 53px;
+    }
+}

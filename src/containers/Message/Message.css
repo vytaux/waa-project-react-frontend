@@ -1,0 +1,59 @@
+.message {
+    display: flex;
+    height: 100vh;
+
+    .sidebar {
+        width: 20%;
+        max-height: 82vh;
+        border-right: 1px solid #b3b1b1;
+        overflow-y: scroll;
+
+        .box {
+            display: flex;
+            align-items: center;
+            padding-top: 0.75em;
+            padding-bottom: 0.75em;
+            cursor: pointer;
+            border-bottom: 1px solid #efefef;
+
+            img {
+                width: 20%;
+                height: 20%;
+                margin: 0 1em;
+            }
+
+            .text {
+                .user {
+                    font-weight: bold;
+                    color: #3a3a3a;
+                }
+
+                .text-message {
+                    font-size: 14px;
+                    color: #5c5a5a;
+                }
+
+                .user.unread {
+                    color: #007bff;
+                }
+
+                .text-message.unread {
+                    color: #007bff;
+                }
+            }
+        }
+
+        .box.active {
+            background-color: #efefef;
+        }
+
+        .box:hover {
+            background-color: #efefef;
+        }
+    }
+
+    p {
+        margin: 0 0 0.25em 0;
+    }
+
+}
