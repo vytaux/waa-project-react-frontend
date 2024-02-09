@@ -118,6 +118,11 @@ const FetchService = {
         return this._call('DELETE', `/customers/0/saved-properties/${propertyId}`, null, {
             Authorization: `Bearer ${accessToken}`
         });
+    },
+    createMessageSession(accessToken, propertyId, message) {
+        return this._call('POST', '/message-sessions', { propertyId, message }, {
+            Authorization: `Bearer ${accessToken}`
+        });
     }
 }
 

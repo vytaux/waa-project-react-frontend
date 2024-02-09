@@ -10,6 +10,7 @@ const PropertyDetails = ({ currentUser }) => {
   const offerMessage = useRef();
   const offerPrice = useRef();
   const notification = useRef();
+  const contactOwnerMessage = useRef();
 
   useEffect(() => {
     FetchService.getPropertyBySlug(slug).then((response) =>
@@ -28,6 +29,14 @@ const PropertyDetails = ({ currentUser }) => {
     });
   };
 
+  const handleContactOwner = () => {
+    FetchService.createMessageSession(
+        currentUser.accessToken,
+        propertyDetails.id,
+        contactOwnerMessage.current.value
+    ).then(() => alert('Owner has been contacted'));
+  }
+
   return (
     <div className="flex property-details-content">
       <div className="property-details w-full">
@@ -41,29 +50,42 @@ const PropertyDetails = ({ currentUser }) => {
         </div>
       </div>
       {!hasRole(currentUser, "OWNER") && (
-        <div className="form offerForm">
-          <h3>Make an Offer</h3>
-          <div className="form-group">
-            <label>Your Message</label>
-            <textarea ref={offerMessage} disabled={!currentUser} />
+          <div>
+            <div className="form offerForm">
+              <h3>Contact Owner</h3>
+              <div className="form">
+                <div className="form-group">
+                  <label>Message</label>
+                  <textarea ref={contactOwnerMessage}></textarea>
+                </div>
+                <button onClick={handleContactOwner}>Contact owner</button>
+              </div>
+
+              <br/>
+
+              <h3>Make an Offer</h3>
+              <div className="form-group">
+                <label>Your Message</label>
+                <textarea ref={offerMessage} disabled={!currentUser}/>
+              </div>
+              <div className="form-group">
+                <label>Your Price $</label>
+                <input type="number" ref={offerPrice} disabled={!currentUser}/>
+              </div>
+              <button
+                  onClick={submitOffer}
+                  disabled={!hasRole(currentUser, "CUSTOMER")}
+              >
+                Make an Offer
+              </button>
+              <div ref={notification}></div>
+              {!hasRole(currentUser, "CUSTOMER") && (
+                  <p>
+                    <Link to="/login">Login</Link> to make an offer
+                  </p>
+              )}
+            </div>
           </div>
-          <div className="form-group">
-            <label>Your Price $</label>
-            <input type="number" ref={offerPrice} disabled={!currentUser} />
-          </div>
-          <button
-            onClick={submitOffer}
-            disabled={!hasRole(currentUser, "CUSTOMER")}
-          >
-            Make an Offer
-          </button>
-          <div ref={notification}></div>
-          {!hasRole(currentUser, "CUSTOMER") && (
-            <p>
-              <Link to="/login">Login</Link> to make an offer
-            </p>
-          )}
-        </div>
       )}
     </div>
   );
