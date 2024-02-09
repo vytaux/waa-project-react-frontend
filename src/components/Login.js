@@ -27,10 +27,7 @@ const Login = ({ setCurrentUser }) => {
                         roles: payload.roles
                     };
                     setCurrentUser(currentUser);
-
-                    sessionStorage.setItem('user', JSON.stringify(currentUser));
-
-                    // console.log(payload)
+                    console.log(payload)
 
                     navigate('/')
                 }).catch((e) => {

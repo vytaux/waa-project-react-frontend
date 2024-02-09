@@ -4,6 +4,7 @@ import FetchService from "../../service/FetchService";
 import Property from "../../components/Property/Property";
 import UserContext from "../../context/UserContext";
 import './Homepage.css';
+import hasRole from "../../util/hasRole";
 
 const Homepage = () => {
     const inputName = useRef(null);
@@ -29,8 +30,7 @@ const Homepage = () => {
         // else
 
         // yikes
-        if (currentUser?.roles.includes("CUSTOMER") &&
-            currentUser?.roles.length === 1) {
+        if (hasRole(currentUser, "CUSTOMER")) {
             FetchService.getSavedProperties(currentUser.accessToken)
                 .then(response => setSavedPropertiesState(response.data))
         }
@@ -74,8 +74,7 @@ const Homepage = () => {
 
             <div className='properties'>
                 {properties.map(property => (
-                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState}
-                        currentUser={currentUser} />
+                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState} />
                 ))}
             </div>
         </div>
