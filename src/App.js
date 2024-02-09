@@ -11,13 +11,26 @@ import Footer from "./containers/Footer/Footer";
 const App = () => {
     const { currentUser, updateUser } = useContext(UserContext)
 
+
+    // trigger on component mount
+    useEffect(() => {
+        // Retrieve data
+        const user = sessionStorage.getItem('user');
+
+        if (user) {
+            updateUser(JSON.parse(user));
+
+        }
+    }, []);
+
+
     document.title = 'NextHome | #1 Real Estate Platform in the World!';
-    console.log(currentUser)
+    // console.log(currentUser)
 
     return (
         <BrowserRouter>
             <Header />
-                <PageRoutes currentUser={currentUser} setCurrentUser={updateUser} />
+            <PageRoutes currentUser={currentUser} setCurrentUser={updateUser} />
             <Footer />
         </BrowserRouter>
     );

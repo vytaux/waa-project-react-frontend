@@ -29,7 +29,8 @@ const Homepage = () => {
         // else
 
         // yikes
-        if (currentUser) {
+        if (currentUser?.roles.includes("CUSTOMER") &&
+            currentUser?.roles.length === 1) {
             FetchService.getSavedProperties(currentUser.accessToken)
                 .then(response => setSavedPropertiesState(response.data))
         }
@@ -73,7 +74,8 @@ const Homepage = () => {
 
             <div className='properties'>
                 {properties.map(property => (
-                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState} />
+                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState}
+                        currentUser={currentUser} />
                 ))}
             </div>
         </div>
