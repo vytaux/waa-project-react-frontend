@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import formatMoney from "../../util/formatMoney";
 import { Link } from "react-router-dom";
 import randomPictureProvider from "../../util/randomPictureProvider";
@@ -27,8 +27,10 @@ const Property = ({ property, savedPropertiesState }) => {
                 </Link>
                 <div className='price'>{formatMoney(property.price)}</div>
                 <div className='description'>{property.description}</div>
-                {hasRole(currentUser, "CUSTOMER") &&
-                    <Favourite property={property} savedPropertiesState={savedPropertiesState}/>
+                {
+                    hasRole(currentUser, "CUSTOMER") &&
+                    !hasRole(currentUser, "ADMIN") &&
+                    <Favourite property={property} savedPropertiesState={savedPropertiesState} />
                 }
 
             </div>

@@ -8,12 +8,15 @@ const Header = () => {
     const { currentUser, updateUser } = useContext(UserContext)
     const navigate = useNavigate();
 
-    const logoutHandler = () => updateUser(null)
+    const logoutHandler = () => {
+        updateUser(null);
+        sessionStorage.setItem('user', "");
+    }
 
     return (
         <header className='header'>
             <nav className='w-full flex'>
-                <Link to={'/'} className='logo'><img src="/logo.png" alt=""/></Link>
+                <Link to={'/'} className='logo'><img src="/logo.png" alt="" /></Link>
                 {hasRole(currentUser, 'OWNER') || hasRole(currentUser, 'ADMIN')
                     ? <Link className='add-property' to='/owner/add-property'>Add Property</Link> : null}
                 <div className="dashboard-links">

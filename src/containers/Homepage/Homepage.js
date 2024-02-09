@@ -30,7 +30,7 @@ const Homepage = () => {
         // else
 
         // yikes
-        if (hasRole(currentUser, "CUSTOMER")) {
+        if (hasRole(currentUser, "CUSTOMER") && !hasRole(currentUser, "ADMIN")) {
             FetchService.getSavedProperties(currentUser.accessToken)
                 .then(response => setSavedPropertiesState(response.data))
         }
