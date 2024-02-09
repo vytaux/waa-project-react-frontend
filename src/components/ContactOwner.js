@@ -12,19 +12,19 @@ const ContactOwner = ({ propertyDetails }) => {
         currentUser.accessToken,
         propertyDetails.id,
         contactOwnerMessage.current.value
-    ).then(() => alert('Owner has been contacted'));
+    ).then(() => alert('Message Sent!'));
   }
 
   return (
       currentUser && (
           <React.Fragment>
-            <h3>Contact Owner</h3>
+            <h3>Send Owner Private Message</h3>
             <div className="form-group">
               <label>Message</label>
               <textarea ref={contactOwnerMessage}></textarea>
             </div>
             <button onClick={handleContactOwner}>Contact owner</button>
-
+            <p>-------------------------------------------------------------------</p>
             <br/>
           </React.Fragment>
       )
