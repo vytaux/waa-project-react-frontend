@@ -1,72 +1,72 @@
-# Getting Started with Create React App
+# CS 545 - Web Application Architecture
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Meet "The A Team"! 🚀
 
-## Available Scripts
+We're a group of students from the CS 545 course who worked on this project:
 
-In the project directory, you can run:
+- Vytautas Asmantavicius
+- Tanzim Islam Chowdhury
+- Aakarshan Simkhada
+- Basanta Shrestha
+- Sanjeev Thapa
 
-### `npm start`
+## Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Welcome to our CS 545 project! Our aim is to create a Property Management System using Spring Boot for the backend and React for the frontend. During this project, we gained invaluable hands-on experience in web application architecture.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+- **Frontend:** React - [Frontend Repository](https://github.com/vytaux/waa-project-react-frontend)
+- **Backend:** Spring Boot - [Backend Repository](https://github.com/vytaux/waa-project-spring-backend)
+- **Security:** JWT for access control
+- **Database:** PostgreSQL
+- **Containerization:** Docker
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Project Features
 
-### `npm run build`
+### For Administrators
+- Dashboard for administrative tasks.
+- Approval system for property owner registrations.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### For Property Owners
+- Registration as an owner.
+- Property management (CRUD).
+- Maintenance of property offers:
+    - Rejection of offers if not accepted by owner.
+    - Status change to 'contingent' upon acceptance from both parties.
+    - Receipt of messages from customers.
+    - Contingency cancellation.
+    - List maintenance of placed offers.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### For Customers
+- Registration as a customer.
+- Offer history checking.
+- Maintenance of current offers.
+- Offer placement with status change to 'pending' upon acceptance.
+- Sending messages to property owners.
+- Maintenance of saved list.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### General Features
+- Login/Logout.
+- Security with JWT.
+- Email notifications offer placement and acceptance.
+- Technical aspects: Neat code organization, managed packages, folders, and files.
 
-### `npm run eject`
+## Project Setup and Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
+- Java JDK 17 or newer
+- Node.js and npm
+- Docker
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Backend Setup
+```
+docker-compose up -d
+./mvnw clean install spring-boot:run
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# This is a frontend to the backend, which can be found [here](https://github.com/vytaux/waa-project-spring-backend)
+### Frontend Setup
+- Navigate to the `frontend` directory.
+- Install dependencies: `npm install`
+- Start the React application: `npm start`
+- Access the application at `http://localhost:3000`
