@@ -1,7 +1,7 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function OwnerDashboard({ currentUser }) {
 
@@ -27,17 +27,23 @@ function OwnerDashboard({ currentUser }) {
         fetchOwnersProperties();
     }, []);
 
-    const acceptOffer = (offerId) => {
-        FetchService.acceptOffer(currentUser.accessToken, offerId)
-            .then(response => {
-                fetchOwnersOffers();
-                fetchOwnersProperties();
-            })
+    const acceptOffer = (offer) => {
+        if (offer.status === "STATUS_CANCELLED")
+            alert("Cannot accpet, offer was canceled by customer")
+        else
+            FetchService.acceptOffer(currentUser.accessToken, offer.id)
+                .then(response => {
+                    fetchOwnersOffers();
+                    fetchOwnersProperties();
+                })
     }
 
-    const rejectOffer = (offerId) => {
-        FetchService.rejectOffer(currentUser.accessToken, offerId)
-            .then(response => fetchOwnersOffers())
+    const rejectOffer = (offer) => {
+        if (offer.status === "STATUS_CANCELLED")
+            alert("Cannot reject, offer was canceled by customer")
+        else
+            FetchService.rejectOffer(currentUser.accessToken, offer.id)
+                .then(response => fetchOwnersOffers())
     }
 
     const turnPropertyContingent = (propertyId) => {
@@ -80,8 +86,8 @@ function OwnerDashboard({ currentUser }) {
                             <td>{formatMoney(offer.price)}</td>
                             {/*<td>{offer.buyer.email}</td>*/}
                             <td>
-                                <button onClick={() => acceptOffer(offer.id)}>Accept</button>
-                                <button onClick={() => rejectOffer(offer.id)}>Reject</button>
+                                <button onClick={() => acceptOffer(offer)}>Accept</button>
+                                <button onClick={() => rejectOffer(offer)}>Reject</button>
                             </td>
                         </tr>
                     ))}
