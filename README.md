@@ -15,7 +15,9 @@
 
 ## Project Overview
 
-Welcome to our CS 545 project! This is a Property Management System using Spring Boot for the backend and React for the frontend. During this project, we gained invaluable hands-on experience in web application architecture.
+Welcome to our CS 545 project! This is not just another property management system. This is **NextHome**, the ultimate real estate platform that connects property owners, customers, and administrators in a seamless and secure way. Whether you want to buy, sell, or rent a property, NextHome is the place to be.
+
+We built this project using Spring Boot for the backend and React for the frontend. Along the way, we learned a lot about web application architecture, such as RESTful APIs, MVC pattern, dependency injection, and more. We also used some of the most popular and powerful technologies in the industry, such as JWT, PostgreSQL, and Docker.
 
 
 ## Technologies Used
