@@ -33,7 +33,7 @@ const Homepage = () => {
             FetchService.getSavedProperties(currentUser.accessToken)
                 .then(response => setSavedPropertiesState(response.data))
         }
-    }, [refresh]);
+    }, [currentUser, refresh]);
 
     const search = (e) => {
         e.preventDefault();
