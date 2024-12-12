@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useCallback, useEffect} from "react";
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
 import { Link } from "react-router-dom";
@@ -10,24 +10,24 @@ function OwnerDashboard({ currentUser }) {
   const [reload, setReload] = React.useState(true);
 
 
-  const fetchOwnersOffers = () => {
-    FetchService.getOwnersOffers(currentUser.accessToken).then((response) => {
-      setOwnersOffersState(response.data);
-    });
-  };
+  const fetchOwnersOffers = useCallback(() => {
+        FetchService.getOwnersOffers(currentUser.accessToken).then((response) => {
+          setOwnersOffersState(response.data);
+        });
+  }, [currentUser.accessToken]);
 
-  const fetchOwnersProperties = () => {
-    FetchService.getOwnersProperties(currentUser.accessToken).then(
-      (response) => {
-        setOwnersPropertiesState(response.data);
-      }
-    );
-  };
+  const fetchOwnersProperties = useCallback(() => {
+        FetchService.getOwnersProperties(currentUser.accessToken).then(
+            (response) => {
+              setOwnersPropertiesState(response.data);
+            }
+        );
+  }, [currentUser.accessToken]);
 
   useEffect(() => {
     fetchOwnersOffers();
     fetchOwnersProperties();
-  }, [reload]);
+  }, [fetchOwnersOffers, fetchOwnersProperties, reload]);
 
   const acceptOffer = (offer) => {
     if (offer.status === "STATUS_CANCELLED")

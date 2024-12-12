@@ -12,7 +12,6 @@ function AdminDashboard({ currentUser }) {
     );
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => refreshOwners(), []);
 
   const approveOwner = (userId) => {
