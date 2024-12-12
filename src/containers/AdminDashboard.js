@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useCallback, useEffect} from "react";
 import FetchService from "../service/FetchService";
 
 function AdminDashboard({ currentUser }) {
@@ -6,13 +6,13 @@ function AdminDashboard({ currentUser }) {
 
   const [ownersState, setOwnersState] = React.useState([]);
 
-  const refreshOwners = () => {
+  const refreshOwners = useCallback(() => {
     FetchService.getPendingOwners(currentUser.accessToken).then((response) =>
       setOwnersState(response.data)
     );
-  };
+  }, [currentUser.accessToken]);
 
-  useEffect(() => refreshOwners(), []);
+  useEffect(() => refreshOwners(), [refreshOwners]);
 
   const approveOwner = (userId) => {
     FetchService.approveOwner(currentUser.accessToken, userId).then(() =>

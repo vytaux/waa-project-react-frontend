@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import FetchService from "../service/FetchService";
-import extractJwtPayload from "../util/extractJwtPayload";
 import { useNavigate } from "react-router-dom";
 
 function Register() {

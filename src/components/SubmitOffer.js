@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { Link } from "react-router-dom";
 import FetchService from "../service/FetchService";
 import hasRole from "../util/hasRole";
 import UserContext from "../context/UserContext";

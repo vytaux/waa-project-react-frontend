@@ -1,7 +1,6 @@
-import React, {useEffect, useRef, useState} from "react";
-import {Link, useLocation, useNavigate, useParams} from "react-router-dom";
+import React, {useRef} from "react";
+import {useLocation, useNavigate} from "react-router-dom";
 import FetchService from "../service/FetchService";
-import hasRole from "../util/hasRole";
 
 
 const EditProperty = ({ currentUser }) => {

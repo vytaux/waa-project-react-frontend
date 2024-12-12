@@ -1,12 +1,13 @@
-import { useState } from "react";
+import {useCallback, useState} from "react";
 import UserContext from "./UserContext";
 
 const UserContextProvider = ({ children }) => {
-  const [currentUser, setcurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
 
-  const updateUser = (newUser) => {
-    setcurrentUser(newUser);
-  };
+  // Memoize the updateUser function
+  const updateUser = useCallback((newUser) => {
+    setCurrentUser(newUser);
+  }, []);
 
   return (
     <UserContext.Provider value={{ currentUser, updateUser }}>

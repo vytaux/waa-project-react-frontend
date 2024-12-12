@@ -1,7 +1,7 @@
 import React, {useCallback, useEffect} from "react";
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CustomerDashboard({ currentUser }) {
   const [offersState, setOffersState] = React.useState([]);

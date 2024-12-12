@@ -2,12 +2,12 @@ import './App.css';
 import { BrowserRouter } from "react-router-dom";
 import Header from "./containers/Header/Header";
 import PageRoutes from './routes/PageRoutes';
-import { useContext, useEffect } from 'react';
+import {useContext, useEffect} from 'react';
 import UserContext from "./context/UserContext";
 import Footer from "./containers/Footer/Footer";
 
 
-const App = () => {
+const App = (callback, deps) => {
     const { currentUser, updateUser } = useContext(UserContext)
 
     document.title = 'NextHome | #1 Real Estate Platform in the World!';
@@ -22,7 +22,7 @@ const App = () => {
             updateUser(JSON.parse(user));
 
         }
-    }, []);
+    }, [updateUser]);
 
     return (
         <BrowserRouter>

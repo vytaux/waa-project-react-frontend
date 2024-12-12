@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import FetchService from "../service/FetchService";
 import extractJwtPayload from "../util/extractJwtPayload";
-import pageRoutes from "../routes/PageRoutes";
 
 const Login = ({ setCurrentUser }) => {
 
