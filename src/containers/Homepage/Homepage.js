@@ -1,4 +1,3 @@
-
 import React, { useContext, useEffect, useRef } from "react";
 import FetchService from "../../service/FetchService";
 import Property from "../../components/Property/Property";
@@ -44,37 +43,91 @@ const Homepage = () => {
         <div className='homepage'>
             <h1>Trending Properties</h1>
 
-            <form onSubmit={search} style={{ textAlign: "center" }}>
+            <form
+                onSubmit={search}
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "6px",
+                    borderRadius: "8px",
+                    margin: "0 auto 0",
+                    marginBottom: "6px",
+                    marginTop: "26px"
+                }}
+            >
                 <input
                     type="text"
                     placeholder="Property Name"
                     ref={inputName}
+                    style={{
+                        padding: "10px",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                        fontSize: "14px",
+                        width: "200px",
+                    }}
                 />
                 <input
                     type="text"
                     placeholder="Description"
                     ref={inputDesc}
-
+                    style={{
+                        padding: "10px",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                        fontSize: "14px",
+                        width: "200px",
+                    }}
                 />
                 <input
                     type="text"
                     placeholder="Min price"
                     ref={inputMin}
-
+                    style={{
+                        padding: "10px",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                        fontSize: "14px",
+                        width: "100px",
+                    }}
                 />
                 <input
                     type="text"
                     placeholder="Max price"
                     ref={inputMax}
-
+                    style={{
+                        padding: "10px",
+                        borderRadius: "4px",
+                        border: "1px solid #ccc",
+                        fontSize: "14px",
+                        width: "100px",
+                    }}
                 />
-                <button type="submit">Search</button>
+                <button
+                    type="submit"
+                    style={{
+                        padding: "10px 22px",
+                        backgroundColor: "#007bff",
+                        color: "#fff",
+                        borderRadius: "4px",
+                        border: "none",
+                        fontSize: "14px",
+                        fontWeight: "bold",
+                        cursor: "pointer",
+                        transition: "background-color 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.backgroundColor = "#0056b3")}
+                    onMouseLeave={(e) => (e.target.style.backgroundColor = "#007bff")}
+                >
+                    Search
+                </button>
             </form>
 
 
             <div className='properties'>
                 {properties.map(property => (
-                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState} />
+                    <Property key={property.id} property={property} savedPropertiesState={savedPropertiesState}/>
                 ))}
             </div>
         </div>
