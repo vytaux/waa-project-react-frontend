@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useCallback, useEffect} from "react";
 import FetchService from "../service/FetchService";
 import formatMoney from "../util/formatMoney";
 import { Link, Navigate } from "react-router-dom";
@@ -7,44 +7,44 @@ function CustomerDashboard({ currentUser }) {
   const [offersState, setOffersState] = React.useState([]);
   const [savedPropertiesState, setSavedPropertiesState] = React.useState([]);
 
-  const fetchOffers = () => {
+  const fetchOffers = useCallback(() => {
     FetchService.getCustomersOffers(currentUser.accessToken).then((response) =>
-      setOffersState(response.data)
+        setOffersState(response.data)
     );
-  };
+  }, [currentUser.accessToken]);
 
-  useEffect(() => {
-    fetchOffers();
-    fetchSavedProperties();
-  }, []);
+  const fetchSavedProperties = useCallback(() => {
+    FetchService.getSavedProperties(currentUser.accessToken).then((response) =>
+        setSavedPropertiesState(response.data)
+    );
+  }, [currentUser.accessToken]);
 
   const cancelOffer = (offerId) => {
     FetchService.cancelOffer(currentUser.accessToken, offerId).then(
-      (response) => fetchOffers()
-    );
-  };
-
-  const fetchSavedProperties = () => {
-    FetchService.getSavedProperties(currentUser.accessToken).then((response) =>
-      setSavedPropertiesState(response.data)
+        (response) => fetchOffers()
     );
   };
 
   const turnOnContingent = (offerId) => {
     FetchService.turnPropertyContingentForCustomer(
-      currentUser.accessToken,
-      offerId
+        currentUser.accessToken,
+        offerId
     )
-      .then((response) => fetchOffers())
-      .catch((error) => console.log(error));
+        .then((response) => fetchOffers())
+        .catch((error) => console.log(error));
   };
 
   const removePropertyFromSavedList = (propertyId) => {
     FetchService.removePropertyFromSavedList(
-      currentUser.accessToken,
-      propertyId
+        currentUser.accessToken,
+        propertyId
     ).then((response) => fetchSavedProperties());
   };
+
+  useEffect(() => {
+    fetchOffers();
+    fetchSavedProperties();
+  }, [fetchOffers, fetchSavedProperties]);
 
   return (
     <main className="customer-dashboard-content">
