@@ -119,6 +119,7 @@ table {
         font-size: 14px;
         text-decoration: none;
         color: #fff;
+        font-family: inherit; /* Use the same font as the parent */
     }
 
     button {
