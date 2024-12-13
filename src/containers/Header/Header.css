@@ -37,6 +37,12 @@
         .auth-links {
             margin-left: auto;
 
+            @media (max-width: 800px) {
+                margin-left: inherit;
+                margin-top: 16px;
+                margin-bottom: 18px;
+            }
+
             a {
                 background-color: #dc3545;
                 border-radius: 5px;

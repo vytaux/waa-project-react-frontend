@@ -147,3 +147,37 @@ table {
 .owner-dashboard-content, .admin-dashboard-content, .customer-dashboard-content {
     padding: 16px;
 }
+
+.search-form input {
+    width: 140px;
+    /*flex-direction: column;*/
+}
+
+@media (max-width: 800px) {
+    .search-form input {
+        width: 100px;
+        /*flex-direction: column;*/
+    }
+}
+
+@media (max-width: 600px) {
+    .search-form {
+        flex-direction: column;
+        padding: 0 40px;
+    }
+
+    .search-form input {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 800px) {
+    nav {
+        flex-direction: column;
+    }
+
+    .dashboard-links a {
+        display: block;
+    }
+}

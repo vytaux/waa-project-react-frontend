@@ -43,7 +43,7 @@ const Homepage = () => {
         <div className='homepage'>
             <h1>Trending Properties</h1>
 
-            <form
+            <form className='search-form'
                 onSubmit={search}
                 style={{
                     display: "flex",
@@ -65,7 +65,6 @@ const Homepage = () => {
                         borderRadius: "4px",
                         border: "1px solid #ccc",
                         fontSize: "14px",
-                        width: "200px",
                     }}
                 />
                 <input
@@ -77,7 +76,6 @@ const Homepage = () => {
                         borderRadius: "4px",
                         border: "1px solid #ccc",
                         fontSize: "14px",
-                        width: "200px",
                     }}
                 />
                 <input
@@ -89,7 +87,6 @@ const Homepage = () => {
                         borderRadius: "4px",
                         border: "1px solid #ccc",
                         fontSize: "14px",
-                        width: "100px",
                     }}
                 />
                 <input
@@ -101,7 +98,6 @@ const Homepage = () => {
                         borderRadius: "4px",
                         border: "1px solid #ccc",
                         fontSize: "14px",
-                        width: "100px",
                     }}
                 />
                 <button
