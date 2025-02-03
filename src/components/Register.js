@@ -51,14 +51,22 @@ function Register() {
             ref={password}
           />
         </div>
+
         <div className="form-group">
-          <label htmlFor="roleDropdown">Select an option: </label>
-          <select id="roleDropdown" ref={role}>
-            <option value="">-- Select an option--</option>
-            <option value="OWNER">Home Owner</option>
-            <option value="CUSTOMER">Home Buyer</option>
-          </select>
+          <label htmlFor="roleDropdown">You are a...</label>
+
+          <div style={{display: "flex", alignItems: "center", gap: "1rem", justifyContent: "center"}}>
+            <div style={{display: "flex", alignItems: "center", marginRight: "10px"}}>
+              <input style={{marginBottom: "7px", marginRight: "4px"}} type="radio" id="homeOwner" name="userType" value="OWNER"/>
+              <label htmlFor="homeOwner" style={{marginLeft: "0.25rem"}}>Home Owner</label>
+            </div>
+            <div style={{display: "flex", alignItems: "center", marginBottom: "3px", marginRight: "5px"}}>
+              <input style={{marginBottom: "7px", marginRight: "4px"}} type="radio" id="homeBuyer" name="userType" value="CUSTOMER"/>
+              <label htmlFor="homeBuyer" style={{marginLeft: "0.25rem"}}>Home Buyer</label>
+            </div>
+          </div>
         </div>
+
         <button type="submit" className="btn btn-primary" onClick={register}>
           Register
         </button>

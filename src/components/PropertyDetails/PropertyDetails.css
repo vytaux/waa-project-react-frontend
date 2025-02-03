@@ -1,11 +1,20 @@
 .property-details-content {
-    padding-left: 37px;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 800px) {
+        flex-direction: row;
+        /*padding-left: 37px;*/
+    }
 
     .property-details {
+        box-sizing: border-box;
+        padding-right: 24px;
+        padding-left: 24px;
+
         img {
             border: 1px solid #ccc;
-            box-shadow: black 0px 0px 4px;
+            box-shadow: black 0 0 4px;
         }
 
         .pictures {
@@ -13,12 +22,26 @@
                 height: 100px;
             }
         }
+
+        .features {
+            display: grid;
+            gap: 16px;
+            margin-top: 12px;
+            grid-template-columns: repeat(2, 140px);
+
+            @media (min-width: 800px) {
+                grid-template-columns: repeat(3, 140px);
+            }
+        }
     }
 
     .offerForm {
         height: 100%;
-        width:350px;
         background: #f2f2f2;
         padding: 3px 23px 53px;
+
+        @media (min-width: 800px) {
+            width:300px;
+        }
     }
 }

@@ -1,10 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
 @import '~@fortawesome/fontawesome-free/css/all.css';
 
-.mx-auto {
-    margin-left: auto;
-    margin-right: auto;
-}
+@tailwind utilities;
 
 html, body, #root {
     height: 100%;
@@ -19,17 +16,7 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.w-full {
-    width: 100%;
-}
-
-.flex {
-    display: flex;
-}
-
 .form {
-    max-width: 400px; /* Adjust the maximum width as needed */
-
     .form-group {
         margin-bottom: 20px; /* Adjust the margin between form groups */
 
@@ -141,6 +128,9 @@ table {
 
 .login-form, .register-form {
     margin-top: 44px;
+    max-width: 400px;
+    margin-bottom: 40px;
+    padding: 0 26px;
 }
 
 .edit-property-content, .edit-offer-content,

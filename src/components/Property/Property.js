@@ -26,7 +26,7 @@ const Property = ({ property, savedPropertiesState }) => {
                     {property.name}
                 </Link>
                 <div className='price'>{formatMoney(property.price)}</div>
-                <div className='description'>{property.description}</div>
+                <div className='description'>{property.shortDescription}</div>
                 {
                     hasRole(currentUser, "CUSTOMER") &&
                     !hasRole(currentUser, "ADMIN") &&

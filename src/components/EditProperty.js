@@ -12,6 +12,7 @@ const EditProperty = ({ currentUser }) => {
     const name = useRef();
     const slug = useRef();
     const price = useRef();
+    const shortDescription = useRef();
     const description = useRef();
     const navigate = useNavigate();
 
@@ -20,6 +21,7 @@ const EditProperty = ({ currentUser }) => {
             name: name.current.value,
             slug: slug.current.value,
             price: price.current.value,
+            shortDescription: shortDescription.current.value,
             description: description.current.value
         }
 
@@ -31,6 +33,8 @@ const EditProperty = ({ currentUser }) => {
             alert("Please enter price")
         else if (!description.current.value)
             alert("Please enter description")
+        else if (!shortDescription.current.value)
+            alert("Please enter short description")
         else
             if (id === undefined) {
                 console.log('create')
@@ -54,7 +58,7 @@ const EditProperty = ({ currentUser }) => {
     return (
         <main className='edit-property-content'>
             <h1 style={{ textAlign: "center" }} >List your property on the Market</h1>
-            <div style={{ textAlign: "center", margin: "auto" }} className="form">
+            <div style={{ textAlign: "center", margin: "auto" }} className="form w-2/5">
                 <div className='form-group'>
                     <label>Name</label>
                     <input type="text" ref={name} defaultValue={state?.name} />
@@ -66,6 +70,10 @@ const EditProperty = ({ currentUser }) => {
                 <div className='form-group'>
                     <label>Price</label>
                     <input type="number" ref={price} defaultValue={state?.price} />
+                </div>
+                <div className='form-group'>
+                    <label>Short Description</label>
+                    <textarea ref={shortDescription} defaultValue={state?.shortDescription}></textarea>
                 </div>
                 <div className='form-group'>
                     <label>Description</label>
